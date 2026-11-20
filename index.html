@@ -4,58 +4,94 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>dogen.es — Yakında Hizmetinizdeyiz</title>
-  <meta name="description" content="Sevilla merkezli İspanya eğitim, dil okulu ve yerleşim danışmanlığı. Yeni web sitemiz hazırlanıyor." />
+  <meta name="description" content="Sevilla merkezli İspanya eğitim, dil okulu ve yerleşim danışmanlığı. Yeni dijital platformumuz hazırlanıyor." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="page">
-    <header class="topbar">
-      <a href="#top" class="wordmark" aria-label="dogen.es">dogen<span class="tld">.es</span></a>
-      <div class="lang-switch" role="group" aria-label="Dil seçimi">
-        <button type="button" class="lang-btn is-active" data-lang="tr">Türkçe</button>
-        <button type="button" class="lang-btn" data-lang="es">Español</button>
+  <div class="sheet">
+    <header class="band top-band">
+      <a href="#top" class="brand" aria-label="dogen.es">
+        <svg class="brand-mark" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <path d="M14 12H40.5L43.5 36H38V84H62C76 84 84 75 84 60C84 47 77.5 38.5 66.5 36.5L67.5 12.2C94.5 13 108 32.5 108 60C108 88 94 108 66 108H14V12Z" fill="currentColor"/>
+          <path d="M44 12H64L61 36H47Z" fill="#C84B31"/>
+        </svg>
+        <span class="brand-name">dogen<span class="brand-tld">.es</span></span>
+      </a>
+
+      <div class="top-coord">
+        <span>Sevilla, España</span>
+        <span class="mono">37°23′N 5°59′W</span>
+      </div>
+
+      <div class="top-right">
+        <span class="phase-tag mono" data-i18n="phase_tag">Fase 01 — Yakında</span>
+        <div class="lang-switch" role="group" aria-label="Dil seçimi">
+          <button type="button" class="lang-btn is-active" data-lang="tr">TR</button>
+          <button type="button" class="lang-btn" data-lang="es">ES</button>
+        </div>
       </div>
     </header>
 
-    <main id="top" class="main">
-      <div class="status-pill">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span data-i18n="status_text">Yeni web sitemiz hazırlanıyor — Yakında hizmetinizdeyiz</span>
-      </div>
+    <main id="top" class="band main-band">
+      <aside class="col-seal">
+        <div class="seal-block">
+          <svg class="seal-mark" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <path d="M14 12H40.5L43.5 36H38V84H62C76 84 84 75 84 60C84 47 77.5 38.5 66.5 36.5L67.5 12.2C94.5 13 108 32.5 108 60C108 88 94 108 66 108H14V12Z" fill="currentColor"/>
+            <path d="M44 12H64L61 36H47Z" fill="#C84B31"/>
+          </svg>
+          <div class="seal-meta">
+            <p class="seal-route">Sevilla — İstanbul</p>
+            <p class="seal-role" data-i18n="seal_role">Eğitim, Dil Okulu ve Yerleşim Ofisi</p>
+          </div>
+        </div>
+        <p class="seal-note" data-i18n="seal_note">
+          Yeni dijital platformumuz yayına hazırlanıyor. Mevcut dönem kayıtları ve kurumsal okul iş birlikleri doğrudan yürütülmektedir.
+        </p>
+      </aside>
 
-      <h1 data-i18n="headline">Türkiye'den İspanya'ya eğitim, dil okulu ve yerleşim danışmanlığı.</h1>
+      <section class="col-manifest">
+        <h1 data-i18n="headline">Türkiye’den İspanya’ya eğitim, dil okulu ve yerleşim danışmanlığı.</h1>
 
-      <p class="lead" data-i18n="lead">
-        Sevilla merkezli yapımızla akredite dil okulları, üniversite başvuruları, vize dosya hazırlığı ve İspanya'ya varış süreçlerinde öğrencilerimize ve kurumsal okul partnerlerimize doğrudan destek veriyoruz. Web sitemiz yayına hazırlanırken aşağıdaki kanallardan bize doğrudan ulaşabilirsiniz.
-      </p>
-
-      <ul class="focus-list">
-        <li data-i18n="focus_1">Akredite Dil Okulları &amp; Üniversite Kabulü</li>
-        <li data-i18n="focus_2">Vize Hazırlığı &amp; İlk 30 Gün Varış Desteği</li>
-        <li data-i18n="focus_3">İspanya'daki Eğitim Kurumları ile Resmi Faturalı Partnerlik</li>
-      </ul>
+        <div class="spec-table" role="list">
+          <div class="spec-row" role="listitem">
+            <span class="spec-num mono">I</span>
+            <h2 class="spec-title" data-i18n="r1_t">Dil Okulu &amp; Üniversite</h2>
+            <p class="spec-desc" data-i18n="r1_d">Instituto Cervantes akreditasyonlu dil okulları, UNEDasiss ve Endülüs DUA devlet üniversitesi başvuruları.</p>
+          </div>
+          <div class="spec-row" role="listitem">
+            <span class="spec-num mono">II</span>
+            <h2 class="spec-title" data-i18n="r2_t">Vize &amp; İlk 30 Gün Varış</h2>
+            <p class="spec-desc" data-i18n="r2_d">Konsolosluk dosya hazırlığı, konaklama, empadronamiento, NIE/TIE ve banka kurulumu.</p>
+          </div>
+          <div class="spec-row" role="listitem">
+            <span class="spec-num mono">III</span>
+            <h2 class="spec-title" data-i18n="r3_t">Kurumsal Okul Partnerliği</h2>
+            <p class="spec-desc" data-i18n="r3_d">İspanya’daki eğitim kurumları için Türkçe aday yönetimi ve resmi faturalı iş birliği.</p>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="bottom">
-      <div class="contact-strip">
-        <a class="contact-item" href="mailto:info@dogen.es">
-          <span class="contact-label" data-i18n="lbl_student">Öğrenci &amp; Danışmanlık</span>
-          <span class="contact-value">info@dogen.es</span>
-        </a>
-        <a class="contact-item" href="mailto:firat@dogen.es">
-          <span class="contact-label" data-i18n="lbl_partner">Okul &amp; Kurumsal İş Birliği</span>
-          <span class="contact-value">firat@dogen.es</span>
-        </a>
-        <a class="contact-item" href="https://wa.me/34666104496" target="_blank" rel="noopener">
-          <span class="contact-label" data-i18n="lbl_phone">Doğrudan Hat / WhatsApp</span>
-          <span class="contact-value">+34 666 104 496</span>
-        </a>
-      </div>
-      <div class="imprint">
-        <span>FIRAT DASDOGEN — Sevilla, España</span>
+    <footer class="band bottom-band">
+      <a class="cell-link" href="mailto:info@dogen.es">
+        <span class="cell-label" data-i18n="c1_lbl">Öğrenci &amp; Aday Başvuruları</span>
+        <span class="cell-value">info@dogen.es</span>
+      </a>
+      <a class="cell-link" href="mailto:firat@dogen.es">
+        <span class="cell-label" data-i18n="c2_lbl">Okul &amp; Kurumsal İş Birliği</span>
+        <span class="cell-value">firat@dogen.es</span>
+      </a>
+      <a class="cell-link" href="https://wa.me/34666104496" target="_blank" rel="noopener">
+        <span class="cell-label" data-i18n="c3_lbl">Doğrudan Hat / WhatsApp</span>
+        <span class="cell-value mono">+34 666 104 496</span>
+      </a>
+      <div class="cell-static">
+        <span class="cell-label" data-i18n="c4_lbl">Yönetim &amp; Resmi Künye</span>
+        <span class="cell-value">FIRAT DASDOGEN — Sevilla</span>
       </div>
     </footer>
   </div>

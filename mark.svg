@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <mask id="dogen-cut">
+      <rect width="120" height="120" fill="#fff"/>
+      <path d="M38 84V36H62C76 36 84 45 84 60C84 75 76 84 62 84H38Z" fill="#000"/>
+      <path d="M40.5 11H44L47 37H43.5Z" fill="#000"/>
+      <path d="M64 11H67.5L64.5 37H61Z" fill="#000"/>
+    </mask>
+    <clipPath id="dogen-d">
+      <path d="M14 12H66C94 12 108 32 108 60C108 88 94 108 66 108H14V12ZM38 84H62C76 84 84 75 84 60C84 45 76 36 62 36H38V84Z" clip-rule="evenodd"/>
+    </clipPath>
+  </defs>
+  <g mask="url(#dogen-cut)">
+    <path d="M14 12H66C94 12 108 32 108 60C108 88 94 108 66 108H14V12Z" fill="#141413"/>
+    <path d="M44 12H64L61 36H47Z" fill="#C84B31" clip-path="url(#dogen-d)"/>
+  </g>
+</svg>

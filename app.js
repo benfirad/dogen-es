@@ -1,27 +1,37 @@
 const I18N = {
   tr: {
     title: "dogen.es — Yakında Hizmetinizdeyiz",
-    status_text: "Yeni web sitemiz hazırlanıyor — Yakında hizmetinizdeyiz",
-    headline: "Türkiye'den İspanya'ya eğitim, dil okulu ve yerleşim danışmanlığı.",
-    lead: "Sevilla merkezli yapımızla akredite dil okulları, üniversite başvuruları, vize dosya hazırlığı ve İspanya'ya varış süreçlerinde öğrencilerimize ve kurumsal okul partnerlerimize doğrudan destek veriyoruz. Web sitemiz yayına hazırlanırken aşağıdaki kanallardan bize doğrudan ulaşabilirsiniz.",
-    focus_1: "Akredite Dil Okulları & Üniversite Kabulü",
-    focus_2: "Vize Hazırlığı & İlk 30 Gün Varış Desteği",
-    focus_3: "İspanya'daki Eğitim Kurumları ile Resmi Faturalı Partnerlik",
-    lbl_student: "Öğrenci & Danışmanlık",
-    lbl_partner: "Okul & Kurumsal İş Birliği",
-    lbl_phone: "Doğrudan Hat / WhatsApp"
+    phase_tag: "Fase 01 — Yakında",
+    seal_role: "Eğitim, Dil Okulu ve Yerleşim Ofisi",
+    seal_note: "Yeni dijital platformumuz yayına hazırlanıyor. Mevcut dönem kayıtları ve kurumsal okul iş birlikleri doğrudan yürütülmektedir.",
+    headline: "Türkiye’den İspanya’ya eğitim, dil okulu ve yerleşim danışmanlığı.",
+    r1_t: "Dil Okulu & Üniversite",
+    r1_d: "Instituto Cervantes akreditasyonlu dil okulları, UNEDasiss ve Endülüs DUA devlet üniversitesi başvuruları.",
+    r2_t: "Vize & İlk 30 Gün Varış",
+    r2_d: "Konsolosluk dosya hazırlığı, konaklama, empadronamiento, NIE/TIE ve banka kurulumu.",
+    r3_t: "Kurumsal Okul Partnerliği",
+    r3_d: "İspanya’daki eğitim kurumları için Türkçe aday yönetimi ve resmi faturalı iş birliği.",
+    c1_lbl: "Öğrenci & Aday Başvuruları",
+    c2_lbl: "Okul & Kurumsal İş Birliği",
+    c3_lbl: "Doğrudan Hat / WhatsApp",
+    c4_lbl: "Yönetim & Resmi Künye"
   },
   es: {
     title: "dogen.es — Muy pronto",
-    status_text: "Nuestra nueva web está en preparación — Muy pronto",
+    phase_tag: "Fase 01 — Muy pronto",
+    seal_role: "Oficina de Estudios y Relocalización",
+    seal_note: "Nuestra nueva plataforma web está en preparación. Las matriculaciones actuales y las alianzas corporativas con centros siguen operativas de forma directa.",
     headline: "Consultoría educativa y de relocalización entre Turquía y España.",
-    lead: "Desde nuestra base en Sevilla acompañamos a estudiantes de Turquía y colaboramos con centros educativos acreditados en España en todo el proceso: matrícula en escuelas de idiomas, acceso universitario, preparación documental para visado y llegada a destino. Mientras preparamos nuestra nueva web, puedes escribirnos directamente por los siguientes canales.",
-    focus_1: "Escuelas de Español Acreditadas y Acceso Universitario",
-    focus_2: "Preparación de Visado y Acompañamiento Inicial (30 días)",
-    focus_3: "Alianzas Corporativas con Centros en España y Facturación Oficial",
-    lbl_student: "Estudiantes y Consultoría",
-    lbl_partner: "Escuelas y Alianzas",
-    lbl_phone: "Contacto Directo / WhatsApp"
+    r1_t: "Escuelas de Español y Universidad",
+    r1_d: "Centros acreditados por el Instituto Cervantes, acceso universitario vía UNEDasiss y preinscripción DUA en Andalucía.",
+    r2_t: "Visado y Aterrizaje (30 Días)",
+    r2_d: "Preparación documental consular, alojamiento, empadronamiento, citas NIE/TIE y apertura bancaria.",
+    r3_t: "Alianza Corporativa con Escuelas",
+    r3_d: "Gestión integral en turco de candidatos internacionales y colaboración formal con facturación oficial.",
+    c1_lbl: "Estudiantes y Candidatos",
+    c2_lbl: "Escuelas y Alianzas",
+    c3_lbl: "Teléfono Directo / WhatsApp",
+    c4_lbl: "Dirección y Titularidad"
   }
 };
 
