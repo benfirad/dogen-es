@@ -14,9 +14,10 @@ Logo (`logo.svg`, kaligrafik "dogen") **değişmez**. Her zaman tek renk (`--tin
 | Línea | `#DCD6CA` | Ayırıcı çizgiler |
 
 ## Tipografi (tam Türkçe/İspanyolca `latin-ext`)
-- Başlık: **Fraunces** 500 (italik vurgu: SOFT 100, WONK 1)
-- Gövde/arayüz: **Inter** 400/500/600
-- Üst etiket (eyebrow): Inter 600, büyük harf, +0.12em, solunda albero çizgi
+- Tek aile: **Instrument Sans** (Kasım 2026, Fraunces + Inter yerine)
+- Başlık: Instrument Sans 600, -0.025em, satır 1.1
+- Gövde/arayüz: Instrument Sans 400/500/600
+- Üst etiket (eyebrow): Instrument Sans 600, büyük harf, +0.12em, solunda albero çizgi
 
 ## Form dili
 - **Kemer** (Sevilla avlu kemeri): yalnız girişteki azulejo görselinde. Başka yerde tekrar edilmez.

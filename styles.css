@@ -11,8 +11,8 @@
   --azulejo-d: #163759;
   --albero: #c58b2b;
 
-  --f-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --f-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-display: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --wrap: 1120px;
   --gutter: clamp(16px, 4vw, 40px);
@@ -33,7 +33,7 @@ body {
 svg { display: block; max-width: 100%; }
 a { color: inherit; }
 p { margin: 0; }
-h1, h2, h3 { margin: 0; font-family: var(--f-display); font-weight: 500; font-variation-settings: "SOFT" 30; letter-spacing: -0.01em; line-height: 1.15; }
+h1, h2, h3 { margin: 0; font-family: var(--f-display); font-weight: 600; letter-spacing: -0.025em; line-height: 1.1; }
 
 .wrap { max-width: calc(var(--wrap) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
 :focus-visible { outline: 2px solid var(--azulejo); outline-offset: 3px; }
