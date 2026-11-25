@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Endülüs Rehberlik Süreci — Detaylı Rehber · dogen.es</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cal:#F6F4EF; --cal2:#EEEAE1; --tinta:#16181D; --pizarra:#555B64; --linea:#D9D3C7;
+  --azulejo:#1F4A7A; --azulejo-soft:#E4EBF3; --albero:#C58B2B; --albero-t:#8A5A12; --albero-soft:#F5EBD8;
+  --rojo:#9B2C2C; --rojo-soft:#F6E3E1; --verde:#2F6B47; --verde-soft:#E2EFE6;
+  --card:#FFFFFF;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--cal);color:var(--tinta);font-family:"Instrument Sans",system-ui,sans-serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-0.025em;line-height:1.2;margin:0}
+p{margin:0 0 .7em}
+a{color:var(--azulejo)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+small,.muted{color:var(--pizarra)}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(246,244,239,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.bar .wrap{display:flex;align-items:center;gap:14px;height:56px}
+.brand{font-weight:700;letter-spacing:-.02em;text-decoration:none;color:var(--tinta);white-space:nowrap}
+.brand span{color:var(--albero)}
+.nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font-size:14px;text-decoration:none;color:var(--pizarra);padding:6px 10px;border-radius:999px;white-space:nowrap}
+.nav a:hover,.nav a.on{background:var(--cal2);color:var(--tinta)}
+.gbtn{border:1px solid var(--linea);background:var(--card);border-radius:999px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer;white-space:nowrap}
+.gbtn:hover{border-color:var(--azulejo);color:var(--azulejo)}
+
+/* hero */
+.hero{padding:56px 0 34px}
+.eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--albero-t);font-weight:600;margin-bottom:10px}
+.hero h1{font-size:clamp(30px,4.6vw,48px);max-width:820px}
+.hero .lead{font-size:18px;color:var(--pizarra);max-width:720px;margin-top:16px}
+.howto{margin-top:22px;display:inline-flex;gap:10px;align-items:center;background:var(--card);border:1px solid var(--linea);border-radius:12px;padding:10px 14px;font-size:14.5px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.fact{background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:14px 16px}
+.fact b{display:block;font-size:20px;letter-spacing:-.02em}
+.fact span{font-size:13.5px;color:var(--pizarra)}
+
+/* glossary term */
+.t{all:unset;cursor:pointer;color:var(--azulejo);font-weight:500;border-bottom:1.5px dotted var(--azulejo);line-height:1.2}
+.t:hover{background:var(--azulejo-soft)}
+.t:focus-visible{outline:2px solid var(--azulejo);outline-offset:2px;border-radius:2px}
+
+/* sections */
+section.s{padding:40px 0;border-top:1px solid var(--linea)}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.sh h2{font-size:clamp(24px,3vw,32px)}
+.sh p{color:var(--pizarra);margin:0;max-width:520px}
+
+.now{background:var(--tinta);color:#F6F4EF;border-radius:18px;padding:26px}
+.now h2{color:#fff;font-size:24px;margin-bottom:6px}
+.now .t{color:#E2B764;border-color:#E2B764}
+.now .t:hover{background:rgba(226,183,100,.15)}
+.now ol{margin:14px 0 0;padding-left:22px}
+.now li{margin-bottom:8px}
+.now small{color:#B9BCC2}
+
+/* lise */
+.verdict{border-radius:18px;padding:24px;background:var(--albero-soft);border:1px solid #E6D3AE;margin-bottom:18px}
+.verdict .lbl{font-size:13px;font-weight:600;color:var(--albero-t);letter-spacing:.04em;text-transform:uppercase}
+.verdict h3{font-size:24px;margin:6px 0 10px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.box{background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:18px}
+.box h4{font-size:16.5px;margin-bottom:8px}
+.box ul{margin:0;padding-left:18px}
+.box li{margin-bottom:6px}
+.box.pro{border-top:3px solid var(--verde)}
+.box.con{border-top:3px solid var(--rojo)}
+.scen{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.sc{border-radius:14px;padding:18px;border:1px solid var(--linea);background:var(--card)}
+.sc .k{font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.sc.a .k{color:var(--verde)} .sc.b .k{color:var(--albero-t)} .sc.c .k{color:var(--rojo)}
+.sc h4{margin:6px 0 8px;font-size:17px}
+.mail{background:var(--card);border:1px dashed var(--linea);border-radius:14px;padding:18px;margin-top:14px;font-size:15px}
+.mail pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0;color:var(--tinta)}
+
+/* phases */
+.phase{display:grid;grid-template-columns:200px 1fr;gap:26px;padding:30px 0;border-top:1px solid var(--linea)}
+.phase:first-of-type{border-top:0}
+.pside{position:sticky;top:76px;align-self:start}
+.pside .num{font-size:13px;font-weight:600;color:var(--albero-t);letter-spacing:.06em;text-transform:uppercase}
+.pside h3{font-size:22px;margin:4px 0 6px}
+.pside .when{font-size:14.5px;color:var(--pizarra)}
+.pside .where{display:inline-block;margin-top:8px;font-size:12.5px;padding:3px 9px;border-radius:999px;background:var(--cal2);color:var(--pizarra)}
+.prog{margin-top:12px;font-size:13px;color:var(--pizarra)}
+.prog i{display:block;height:5px;border-radius:5px;background:var(--cal2);margin-top:5px;overflow:hidden}
+.prog i b{display:block;height:100%;width:0;background:var(--azulejo);transition:width .3s}
+.pbody .why{font-size:17px;margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:16px 18px}
+.card h4{font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--pizarra);font-weight:600;margin-bottom:10px}
+.card.full{grid-column:1/-1}
+.card.risk{background:var(--rojo-soft);border-color:#EBC9C5}
+.card.risk h4{color:var(--rojo)}
+.card.tip{background:var(--azulejo-soft);border-color:#C9D6E6}
+.card.tip h4{color:var(--azulejo)}
+.card ul{margin:0;padding-left:18px}
+.card li{margin-bottom:6px}
+.chk{list-style:none;padding:0!important}
+.chk li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--cal2);margin:0!important}
+.chk li:last-child{border-bottom:0}
+.chk input{margin-top:5px;width:17px;height:17px;accent-color:var(--azulejo);flex:none;cursor:pointer}
+.chk label{cursor:pointer}
+.chk input:checked+label{color:var(--pizarra);text-decoration:line-through;text-decoration-color:var(--linea)}
+.cost{width:100%;border-collapse:collapse;font-size:15px}
+.cost td{padding:6px 0;border-bottom:1px solid var(--cal2);vertical-align:top}
+.cost td:last-child{text-align:right;white-space:nowrap;font-weight:600;padding-left:12px}
+.cost tr:last-child td{border-bottom:0}
+.est{font-size:11.5px;font-weight:500;color:var(--albero-t);background:var(--albero-soft);padding:1px 6px;border-radius:5px;margin-left:4px;white-space:nowrap}
+.dates{display:flex;flex-direction:column;gap:0}
+.dates div{display:grid;grid-template-columns:130px 1fr;gap:10px;padding:6px 0;border-bottom:1px solid var(--cal2);font-size:15px}
+.dates div:last-child{border-bottom:0}
+.dates b{font-weight:600}
+
+/* budget */
+.btable{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--linea);border-radius:14px;overflow:hidden;font-size:15px}
+.btable th,.btable td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--cal2)}
+.btable th{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--pizarra);font-weight:600;background:var(--cal2)}
+.btable td.n{text-align:right;white-space:nowrap;font-weight:600}
+.btable tr.sum td{background:var(--azulejo-soft);font-weight:600}
+
+/* glossary grid */
+.gsearch{width:100%;max-width:420px;font:inherit;padding:10px 14px;border:1px solid var(--linea);border-radius:12px;background:var(--card)}
+.gsearch:focus{outline:2px solid var(--azulejo);border-color:transparent}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.gitem{all:unset;cursor:pointer;background:var(--card);border:1px solid var(--linea);border-radius:12px;padding:12px 14px;display:block}
+.gitem:hover,.gitem:focus-visible{border-color:var(--azulejo)}
+.gitem b{display:block;font-weight:600}
+.gitem span{font-size:13.5px;color:var(--pizarra);display:block;line-height:1.4;margin-top:2px}
+.gcat{grid-column:1/-1;font-size:13px;font-weight:600;color:var(--albero-t);letter-spacing:.06em;text-transform:uppercase;margin-top:12px}
+
+/* sources */
+.src{columns:2;column-gap:28px;font-size:14.5px;padding-left:18px}
+.src li{margin-bottom:8px;break-inside:avoid}
+
+footer{padding:30px 0 60px;color:var(--pizarra);font-size:14px;border-top:1px solid var(--linea)}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(22,24,29,.28);opacity:0;pointer-events:none;transition:opacity .2s;z-index:40}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:var(--cal);border-left:1px solid var(--linea);z-index:41;transform:translateX(102%);transition:transform .26s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 50px rgba(22,24,29,.12)}
+.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:22px 22px 12px;border-bottom:1px solid var(--linea)}
+.dh .cat{font-size:12.5px;font-weight:600;color:var(--albero-t);letter-spacing:.06em;text-transform:uppercase}
+.dh h3{font-size:24px;margin-top:4px}
+.dh .full{font-style:italic;color:var(--pizarra);font-size:14.5px;margin-top:4px}
+.x{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:20px;color:var(--pizarra);flex:none}
+.x:hover{background:var(--cal2)}
+.db{padding:18px 22px 30px;overflow-y:auto}
+.db h5{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--pizarra);margin:16px 0 6px;font-weight:600}
+.db h5:first-child{margin-top:0}
+.db .you{background:var(--azulejo-soft);border-radius:12px;padding:12px 14px}
+.db .rel{display:flex;flex-wrap:wrap;gap:6px}
+.db .rel .t{border:1px solid #C9D6E6;border-radius:999px;padding:3px 10px;font-size:14px;background:var(--card)}
+.db .gojump{font-size:14px}
+
+@media (max-width:860px){
+  .facts{grid-template-columns:1fr 1fr}
+  .cols,.scen,.grid2{grid-template-columns:1fr}
+  .phase{grid-template-columns:1fr;gap:14px}
+  .pside{position:static}
+  .ggrid{grid-template-columns:1fr 1fr}
+  .src{columns:1}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .ggrid{grid-template-columns:1fr}
+  .hero{padding-top:34px}
+  .bar .brand{display:none}
+  .dates div{grid-template-columns:100px 1fr}
+  .drawer{top:auto;bottom:0;height:auto;max-height:85vh;width:100%;border-left:0;border-top:1px solid var(--linea);border-radius:18px 18px 0 0;transform:translateY(102%)}
+  .btable{font-size:14px}
+  .btable th,.btable td{padding:9px 10px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{.bar,.scrim,.drawer,.howto,.gsearch{display:none!important}body{background:#fff}.phase{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top">dogen<span>.</span>es</a>
+    <nav class="nav" id="nav">
+      <a href="#simdi">Şimdi</a>
+      <a href="#lise">Lise denkliği</a>
+      <a href="#f1">1 · Türkiye</a>
+      <a href="#f2">2 · Vize</a>
+      <a href="#f3">3 · Dil + başvuru</a>
+      <a href="#f4">4 · Kayıt</a>
+      <a href="#f5">5 · GIAT</a>
+      <a href="#f6">6 · Oturum</a>
+      <a href="#f7">7 · Kokart</a>
+      <a href="#butce">Bütçe</a>
+      <a href="#sozluk">Sözlük</a>
+    </nav>
+    <button class="gbtn" type="button" onclick="document.getElementById('sozluk').scrollIntoView()">Ne nedir?</button>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">Mücahit Sönmez · Detaylı süreç rehberi · Kasım 2026</p>
+    <h1>Türkiye’den Endülüs resmî turist rehberliğine: adım adım, tarih tarih</h1>
+    <p class="lead">Tek sayfalık haritanın uzun hali. Her aşamada ne yapılacağı, hangi belgenin nereden alınacağı, ne kadar tutacağı ve nerede işin ters gidebileceği burada. 2026 Kasım itibarıyla geçerli kurallara göre hazırlandı.</p>
+    <div class="howto"><span class="t" tabindex="-1" style="pointer-events:none">Altı noktalı</span> kelimelere dokun: ne olduğu ve senin için neden önemli olduğu açılır.</div>
+    <div class="facts">
+      <div class="fact"><b>~3 yıl</b><span>Şubat 2027 → Sonbahar 2029</span></div>
+      <div class="fact"><b>7 aşama</b><span>Türkiye, vize, dil, kayıt, okul, oturum, kokart</span></div>
+      <div class="fact"><b>0 €</b><span>Devlet okulunda öğrenim ücreti</span></div>
+      <div class="fact"><b>1 açık risk</b><span>Lise denkliği (aşağıda dürüstçe)</span></div>
+    </div>
+  </section>
+
+  <section class="s" id="simdi">
+    <div class="now">
+      <h2>Bu hafta ve Aralık’ta yapılacaklar</h2>
+      <small>Sıra önemli: en uzun süren işler en başta.</small>
+      <ol>
+        <li>Mezun olduğun liseden (kapandıysa <button class="t" data-t="ilcemem">İlçe MEM</button> arşivinden) <b>hazırlık sınıfını ayrı yıl olarak gösteren</b> ders ve haftalık saatli not dökümü ile diploma aslını iste.</li>
+        <li>Diploma + not dökümüne <button class="t" data-t="apostil">apostil</button>, sonra <button class="t" data-t="jurado">yeminli İspanyolca tercüme</button>.</li>
+        <li>Aralık 2026’da İspanya Eğitim Bakanlığı’na lise <button class="t" data-t="homologacion">homologación</button> başvurusu, <button class="t" data-t="tasa107">tasa 790-107</button> öde; başvuru belgesi = <button class="t" data-t="volante">volante</button> (mühür tarihinden itibaren 6 ay geçerli; karar Haziran’a yetişmezse Mayıs/Haziran’da yeni volante istenir).</li>
+        <li>Aynı ay yedek kapıyı da aç: İlahiyat lisansı için <button class="t" data-t="equivalencia">equivalencia</button> başvurusu (harç 166,50 €; 6–12 ay sürüyor, beklemeden başlamalı).</li>
+        <li><button class="t" data-t="sevillahabla">Sevilla Habla</button> 8 aylık kurs kaydı (22 Şubat – 15 Mart 2027 başlangıç; 22 Şubat için BLS teslimi 22 Aralık’ta gerekir, sıkışırsa 1–15 Mart seçilir); <b>vize reddinde iade</b> şartını yazılı al.</li>
+        <li>Pasaport 2028 sonrasına kadar geçerli ve en az 2 boş sayfa olmalı. <button class="t" data-t="adli">Adli sicil</button> ve <button class="t" data-t="medico">sağlık raporu</button> vize randevusundan en fazla ~3 ay önce alınır.</li>
+        <li>29 Kasım <button class="t" data-t="ales">ALES</button>: yüksek lisans yedek yolu için skor elinde olsun.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- LİSE -->
+  <section class="s" id="lise">
+    <div class="sh">
+      <h2>Lise denkliği: 3 yıl + 1 hazırlık yeter mi?</h2>
+      <p>Kısa cevap: <b>büyük ihtimalle evet ama garanti değil.</b> Kimse şu an “kesin” diyemez; karar Bakanlıkta dosya bazında veriliyor.</p>
+    </div>
+
+    <div class="verdict">
+      <p class="lbl">Dürüst değerlendirme</p>
+      <h3>Olası, ama risk var. Plan buna göre kuruldu.</h3>
+      <p>Önceki haritada “netleşti” yazan şey, <b>senin liseyi 3+1 hazırlıklı okuduğun bilgisiydi</b>, İspanya’nın bunu kabul edeceği değil. Resmî kaynakları tek tek okudum. İspanya’nın Türkiye için yayımladığı denklik tablosu tam lise denkliğini (<button class="t" data-t="bachiller">Título de Bachiller</button>) bugünkü 4+4+4 sisteme göre <b>“12. sınıfı bitirmek”</b> şartına bağlıyor; 11. sınıfı ise yalnızca <button class="t" data-t="convalidacion">1º Bachillerato</button> sayıyor. Senin dönemindeki eski sistem bu tabloda hiç yok, hazırlık sınıfından da hiç bahsedilmiyor. Tablonun kendisi de “bilgilendirme amaçlı, hukuki bağlayıcılığı yok” diyor.</p>
+      <p style="margin:0">Tablo olmayan durumda kural belli: Bakanlık eğitimin <b>içeriğine, süresine, daha önceki benzer kararlara ve karşılıklılığa</b> bakarak tek tek karar veriyor (<button class="t" data-t="rd104">RD 104/1988 md. 6</button>). Yani sonucu belirleyecek şey, senin not dökümünün hazırlık yılını ne kadar net gösterdiği.</p>
+    </div>
+
+    <div class="cols">
+      <div class="box pro">
+        <h4>Lehine olanlar</h4>
+        <ul>
+          <li>Toplam okul süresi 12 yıl: 8 yıl ilköğretim + 1 hazırlık + 3 lise.</li>
+          <li>Diploman Türkiye’de üniversiteye giriş hakkı verdi ve üniversiteyi bitirdin. Bakanlık “kendi ülkesinde yükseköğretime erişim sağlıyor mu” sorusuna bakıyor.</li>
+          <li>İspanya katı bir “12 yıl” kuralı uygulamıyor: örneğin Rusya’nın 11 yıllık lise diplomasını tam Bachiller sayıyor.</li>
+          <li>Hazırlık sınıfı o dönem resmî bir öğretim yılıydı, sınıf geçme defterine işleniyordu, devamı zorunluydu.</li>
+        </ul>
+      </div>
+      <div class="box con">
+        <h4>Aleyhine olanlar</h4>
+        <ul>
+          <li>Tablo “12º” diyor. Senin not dökümünde son sınıf büyük ihtimalle “Lise 3 / 11. sınıf” yazıyor.</li>
+          <li>Hazırlık yılı çoğunlukla dil ağırlıklı; Bakanlık bunu genel lise müfredatı saymayabilir.</li>
+          <li>Eski 3 yıllık Türk lisesiyle ilgili yayımlanmış bir emsal karar bulamadım (ne lehte ne aleyhte).</li>
+          <li>Karar süresi uzayabilir; yeni yönetmelik taslağında 3 ay sonunda cevap gelmezse <button class="t" data-t="silencio">silencio negativo</button> var.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="scen">
+      <div class="sc a">
+        <p class="k">Senaryo A · olası</p>
+        <h4>Tam Bachiller denkliği</h4>
+        <p>Ana rota olduğu gibi devam: devlet FP GIAT, 2027 Eylül başlangıç. Not ortalaman İspanyol notuna çevrilir, sıralamada <button class="t" data-t="cupo">cupo 1</button>’de yarışırsın.</p>
+      </div>
+      <div class="sc b">
+        <p class="k">Senaryo B · risk</p>
+        <h4>Yalnızca 1º Bachillerato</h4>
+        <p>Bu FP Grado Superior’a girişi sağlamaz; volante ile yapılmış kayıt iptal olur. Çözüm: <button class="t" data-t="prueba">Prueba de Acceso</button> (cupo 2) veya İlahiyat lisansının denkliği (cupo 3). İtiraz hakkı da var: <button class="t" data-t="reposicion">recurso de reposición</button>.</p>
+      </div>
+      <div class="sc c">
+        <p class="k">Senaryo C · gecikme</p>
+        <h4>Karar Temmuz 2027’ye yetişmez</h4>
+        <p>Volante ile şartlı kayıt yapılır, ama puanın geçici olarak <b>5,00</b> yazılır (bkz. <button class="t" data-t="puan">puan tuzağı</button>). Bu yüzden başvuru Aralık 2026’da, yani ~7 ay önceden.</p>
+      </div>
+    </div>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="card tip">
+        <h4>Riski küçültmek için</h4>
+        <ul>
+          <li>Okuldan istenecek belge: “Hazırlık sınıfı dahil 4 öğretim yılını, her yılın derslerini ve haftalık ders saatlerini gösteren öğrenim belgesi / not dökümü”.</li>
+          <li>Başvuruya kısa bir açıklama ekle: “Hazırlık sınıfı zorunlu resmî öğretim yılıdır; toplam 12 yıl okul eğitimi; diploma Türkiye’de üniversite girişi sağlamıştır; İlahiyat lisans diploması ektedir.”</li>
+          <li>Üniversite diplomasını da ek olarak koy: yükseköğretime gerçekten eriştiğinin kanıtı.</li>
+          <li>Başvurudan önce Bakanlığa soru yaz (aşağıdaki taslak). Yazılı cevap gelirse en güçlü güvence o.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Yedek kapılar (Aralık’ta paralel açılır)</h4>
+        <ul>
+          <li><b>Lisans denkliği → cupo 3:</b> İlahiyat diplomasına <button class="t" data-t="equivalencia">equivalencia</button> başvurusu. Kontenjan küçük (%5) ama lise sorusunu tamamen devre dışı bırakır.</li>
+          <li><b>Prueba de Acceso → cupo 2:</b> 19 yaş üstü, denklik istemez. Sınav İspanyolca; 2027 Nisan’da 2 aylık dille zor, <b>2028 için gerçekçi</b>.</li>
+          <li><b>Yüksek lisans yolu:</b> İlahiyat diplomasıyla 1 yıllık yüz yüze devlet master’ı (~850–1.000 €), içeriden GIAT’a geçiş.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mail">
+      <b>Bakanlığa gönderilebilecek soru taslağı (İspanyolca)</b> <small>· gönderilmedi; onayınla gönderilir</small>
+      <pre>Asunto: Consulta previa – homologación al Título de Bachiller – sistema turco anterior a 2005 (Lise de 3 años + curso preparatorio)
+
+Buenos días:
+Obtuve el Lise Diploması en Turquía en 2007 tras 12 años de escolaridad: 5 años de primaria, 3 de secundaria (İlköğretim, 8 años), 1 año oficial y obligatorio de curso preparatorio (Hazırlık Sınıfı) y 3 años de Lise. El título me dio acceso a la universidad en Turquía, donde me licencié en Teología.
+La tabla informativa de Turquía solo contempla el sistema 4+4+4 actual. ¿Podrían indicarme si, en un caso como el mío, el curso preparatorio se computa a efectos de homologación al Título de Bachiller, y qué documentación adicional conviene aportar?
+Muchas gracias.</pre>
+    </div>
+  </section>
+
+  <!-- AŞAMALAR -->
+  <section class="s" id="asamalar" style="padding-bottom:0">
+    <div class="sh">
+      <h2>7 aşama, detaylı</h2>
+      <p>Her aşamanın kontrol listesi işaretlenebilir; işaretler bu tarayıcıda kalır.</p>
+    </div>
+
+    <!-- F1 -->
+    <article class="phase" id="f1">
+      <div class="pside">
+        <p class="num">Aşama 1</p>
+        <h3>Türkiye’de hazırlık ve erken denklik</h3>
+        <p class="when">Kasım – Aralık 2026</p>
+        <span class="where">Türkiye</span>
+        <div class="prog" data-p="f1">0 / 0 tamam<i><b></b></i></div>
+      </div>
+      <div class="pbody">
+        <p class="why">Bütün süreç bu iki ayda atılan evrak adımlarına yaslanıyor. En uzun süren iş denklik olduğu için önce o başlıyor.</p>
+        <div class="grid2">
+          <div class="card full">
+            <h4>Kontrol listesi</h4>
+            <ul class="chk">
+              <li><input type="checkbox" id="f1a"><label for="f1a">Lise diploması aslı (kayıpsa okuldan “diploma kayıt örneği”).</label></li>
+              <li><input type="checkbox" id="f1b"><label for="f1b">Hazırlık dahil 4 yılı, dersleri ve haftalık saatleri gösteren ıslak imzalı-mühürlü not dökümü (2008 öncesi mezun: e-Devlet’te yok, okul ya da <button class="t" data-t="ilcemem">İlçe MEM</button> arşivi).</label></li>
+              <li><input type="checkbox" id="f1c"><label for="f1c">Diploma + not dökümüne Kaymakamlık/Valilik <button class="t" data-t="apostil">apostili</button>.</label></li>
+              <li><input type="checkbox" id="f1d"><label for="f1d">Apostilli belgelerin <button class="t" data-t="jurado">yeminli İspanyolca tercümesi</button> (apostil sayfası dahil).</label></li>
+              <li><input type="checkbox" id="f1e"><label for="f1e">Pasaport fotokopisi (geçerlilik 2028+, en az 2 boş sayfa).</label></li>
+              <li><input type="checkbox" id="f1f"><label for="f1f"><button class="t" data-t="tasa107">Tasa 790-107</button> ödemesi ve lise <button class="t" data-t="homologacion">homologación</button> başvurusu → <button class="t" data-t="volante">volante</button> çıktısını sakla (6 ay geçerli; karar Haziran’a yetişmezse Mayıs/Haziran’da yenisi istenir).</label></li>
+              <li><input type="checkbox" id="f1g"><label for="f1g">İlahiyat diploması + transkript için de apostil ve tercüme → <button class="t" data-t="equivalencia">equivalencia</button> başvurusu (yedek kapı, 166,50 € harç).</label></li>
+              <li><input type="checkbox" id="f1h"><label for="f1h"><button class="t" data-t="sevillahabla">Sevilla Habla</button> kaydı: 8 ay, başlangıç 22 Şubat – 15 Mart 2027 arası (Aralık sonu sıkışırsa 1–15 Mart); vize reddinde iade şartı yazılı.</label></li>
+              <li><input type="checkbox" id="f1i"><label for="f1i">Kendi 400 bin TL tazminat + babadan hibe (~290–300 bin TL, kardeşten değil): aynı bankada Euro’ya çevir (12.200+ €), dekont + imzalı hibe beyanı + babanın gelir/hesap özeti + nüfus kayıt örneği.</label></li>
+              <li><input type="checkbox" id="f1j"><label for="f1j">29 Kasım <button class="t" data-t="ales">ALES</button> + eski okuldan antetli çalışma/ara verme yazısı ve SGK çıkış/tazminat belgeleri.</label></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Maliyet</h4>
+            <table class="cost">
+              <tr><td>Denklik harcı (lise)</td><td>~55 €</td></tr>
+              <tr><td>Yeminli tercüme, sayfa başı <span class="est">tahmin</span></td><td>25–45 €</td></tr>
+              <tr><td>Apostil (Kaymakamlık)</td><td>düşük / ücretsiz</td></tr>
+              <tr><td>Sevilla Habla, 8 ay</td><td>3.400 €</td></tr>
+              <tr><td>Lisans denkliği harcı (Tasa 790-107)</td><td>166,50 €</td></tr>
+            </table>
+          </div>
+          <div class="card risk">
+            <h4>Risk</h4>
+            <ul>
+              <li>Tercüme edilmemiş ya da apostilsiz tek bir sayfa bütün dosyayı bekletir.</li>
+              <li>Okul arşivinde hazırlık yılı ayrı görünmezse lise riskini büyütür. Belgeyi almadan önce içeriğini kontrol et.</li>
+              <li>Volante mühür tarihinden itibaren <b>6 ay</b> ve tek akademik yıl için geçerli. Aralık başında mühürlenirse Haziran’da süresi dolar; karar çıkmadıysa Mayıs/Haziran’da yeni volante talep edilmeli.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- F2 -->
+    <article class="phase" id="f2">
+      <div class="pside">
+        <p class="num">Aşama 2</p>
+        <h3>Öğrenci vizesi ve İspanya’ya giriş</h3>
+        <p class="when">Aralık 2026 – Mart 2027</p>
+        <span class="where">İstanbul → Sevilla</span>
+        <div class="prog" data-p="f2">0 / 0 tamam<i><b></b></i></div>
+      </div>
+      <div class="pbody">
+        <p class="why">Dil kursu için öğrenci vizesi (<button class="t" data-t="art52e">Art. 52.1.e</button>) alınır. Bu vize çalışma hakkı vermez; çalışma hakkı Temmuz 2027’deki geçişle gelir.</p>
+        <div class="grid2">
+          <div class="card full">
+            <h4>Kontrol listesi</h4>
+            <ul class="chk">
+              <li><input type="checkbox" id="f2a"><label for="f2a"><button class="t" data-t="bls">BLS International</button> İstanbul randevusu (Aralık sonu – Ocak başı).</label></li>
+              <li><input type="checkbox" id="f2b"><label for="f2b">Vize formu, biyometrik fotoğraf, pasaport.</label></li>
+              <li><input type="checkbox" id="f2c"><label for="f2c">Sevilla Habla kabul mektubu + ödeme dekontu.</label></li>
+              <li><input type="checkbox" id="f2d"><label for="f2d">Geçim & kaynak paketi: BLS pratiğinde 1.500 € × 8 ay = <b>12.000 €</b> (kur tamponuyla 12.200+ €); 6 aylık TL dökümü, tazminat/SGK çıkış, döviz alım dekontu, babanın hibe beyanı + gelir özeti + nüfus kayıt örneği. Kardeşten havale yapılmaz.</label></li>
+              <li><input type="checkbox" id="f2e"><label for="f2e">Geri dönüş bağları: eski okuldan antetli yazı, ALES belgesi, araç ruhsatı (araba satılmaz).</label></li>
+              <li><input type="checkbox" id="f2f"><label for="f2f">İspanya’da geçerli, muafiyetsiz <button class="t" data-t="seguro">sağlık sigortası</button>.</label></li>
+              <li><input type="checkbox" id="f2g"><label for="f2g">Apostilli + tercümeli <button class="t" data-t="adli">adli sicil kaydı</button> ve <button class="t" data-t="medico">sağlık raporu</button>.</label></li>
+              <li><input type="checkbox" id="f2h"><label for="f2h">Sevilla’da konaklama belgesi (kira sözleşmesi ya da okul adres belgesi).</label></li>
+              <li><input type="checkbox" id="f2i"><label for="f2i">Varış: Şubat sonu / Mart ortası → ilk hafta <button class="t" data-t="padron">empadronamiento</button>.</label></li>
+              <li><input type="checkbox" id="f2j"><label for="f2j">İlk 30 gün içinde <button class="t" data-t="tie">TIE</button> randevusu, parmak izi, harç; kart Kasım 2027’ye kadar.</label></li>
+              <li><input type="checkbox" id="f2k"><label for="f2k"><button class="t" data-t="fnmt">FNMT dijital sertifika</button> (bundan sonra her şey online).</label></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Önemli tarihler</h4>
+            <div class="dates">
+              <div><b>Aralık sonu–Oca başı</b><span>BLS başvurusu (kurs başlangıcından ≥2 ay önce)</span></div>
+              <div><b>~2–6 hafta</b><span>Konsolosluk kararı <span class="est">tahmin</span></span></div>
+              <div><b>22 Şub–15 Mar</b><span>Kurs başlangıcı (sıkışırsa 1–15 Mart)</span></div>
+              <div><b>+30 gün</b><span>TIE parmak izi</span></div>
+            </div>
+          </div>
+          <div class="card risk">
+            <h4>Risk</h4>
+            <ul>
+              <li>Hibe parası hesaba son anda yatırılırsa konsolosluk kaynağını sorgular; en az 1–2 ay önce yatsın, dekontu dursun.</li>
+              <li>Kurs başlangıcı Şubat ortasından <b>erken</b> olursa 8 aylık TIE Ekim ortasında biter ve Temmuz geçişinde 2 ay kuralı sıkışır. 22 Şubat – 15 Mart 2027 aralığı en güvenli penceredir.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- F3 -->
+    <article class="phase" id="f3">
+      <div class="pside">
+        <p class="num">Aşama 3</p>
+        <h3>Dil kursu ve FP başvurusu</h3>
+        <p class="when">Mart – Haziran 2027</p>
+        <span class="where">Sevilla</span>
+        <div class="prog" data-p="f3">0 / 0 tamam<i><b></b></i></div>
+      </div>
+      <div class="pbody">
+        <p class="why">Dört ayda sıfırdan günlük İspanyolcaya. Haziran’ın ikinci yarısında da sürecin en kritik 16 günlük başvuru penceresi var.</p>
+        <div class="grid2">
+          <div class="card full">
+            <h4>Kontrol listesi</h4>
+            <ul class="chk">
+              <li><input type="checkbox" id="f3a"><label for="f3a">Sevilla Habla devamı (devamsızlık oturum yenilemeyi tehlikeye atar).</label></li>
+              <li><input type="checkbox" id="f3b"><label for="f3b">Denklik dosyasını <button class="t" data-t="sede">sede electrónica</button>’dan takip et; karar çıkmadıysa ve Aralık volante’si 6 ayı dolduracaksa Mayıs/Haziran’da yeni volante al.</label></li>
+              <li><input type="checkbox" id="f3c"><label for="f3c"><b>1–20 Mayıs 2027:</b> <button class="t" data-t="eoi">EOI Sevilla</button> İngilizce ön başvurusu (kesin kayıt 1–10 Temmuz; kaçarsa 1 yıl kaybolur). İki devlet GIAT okulu da <i>bilingüe</i> İngilizce olduğu için Mart’tan itibaren paralel İngilizce çalışması başlar.</label></li>
+              <li><input type="checkbox" id="f3d"><label for="f3d"><b>15–30 Haziran 2027:</b> <button class="t" data-t="secretaria">Secretaría Virtual</button>’dan FP GIAT başvurusu.</label></li>
+              <li><input type="checkbox" id="f3e"><label for="f3e">Tercih sırası: 1. IES V Centenario · 2. IES Murillo · 3. IES José María Infantes (Utrera). Özel yedek: Cámara de Sevilla (~4.075 €/yıl, yalnızca yüz yüze).</label></li>
+              <li><input type="checkbox" id="f3f"><label for="f3f">Gerekirse <button class="t" data-t="dele">DELE / SIELE</button> sınav kaydı (dil kalışının tek seferlik uzatması için, <button class="t" data-t="art555">Art. 55.5</button>).</label></li>
+            </ul>
+          </div>
+          <div class="card tip">
+            <h4>Neden yalnızca yüz yüze?</h4>
+            <p style="margin:0">Uzaktan (<i>a distancia</i>) FP programları öğrenci oturumu vermez. İsim aynı olsa bile online GIAT ile <button class="t" data-t="art52a">Art. 52.1.a</button> alınamaz.</p>
+          </div>
+          <div class="card risk">
+            <h4>Risk</h4>
+            <ul>
+              <li>Denklik kararı henüz yoksa başvuru volante ile yapılır ve puan geçici olarak 5,00 sayılır (<button class="t" data-t="puan">puan tuzağı</button>).</li>
+              <li>Başvuru penceresi yalnızca 16 gün; kaçarsa bir yıl kaybolur.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- F4 -->
+    <article class="phase" id="f4">
+      <div class="pside">
+        <p class="num">Aşama 4</p>
+        <h3>Kayıt ve öğrenci oturumuna geçiş</h3>
+        <p class="when">9 – 24 Temmuz 2027</p>
+        <span class="where">Sevilla · online</span>
+        <div class="prog" data-p="f4">0 / 0 tamam<i><b></b></i></div>
+      </div>
+      <div class="pbody">
+        <p class="why">En sıkışık iki hafta. Kayıt olduğun gün dil kalışından yükseköğretim kalışına geçiş başvurusu yapılır; çalışma hakkı buradan doğar.</p>
+        <div class="grid2">
+          <div class="card">
+            <h4>Takvim</h4>
+            <div class="dates">
+              <div><b>9–10 Tem</b><span>1. <button class="t" data-t="adjudicacion">yerleştirme</button></span></div>
+              <div><b>10–15 Tem</b><span>1. <button class="t" data-t="matricula">kesin kayıt</button></span></div>
+              <div><b>Aynı gün</b><span><button class="t" data-t="mercurio">MERCURIO</button> başvurusu</span></div>
+              <div><b>20–24 Tem</b><span>2. yerleştirme</span></div>
+              <div><b>~15 Eyl</b><span>Ders başlangıcı</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Maliyet ve kanıt</h4>
+            <table class="cost">
+              <tr><td>Okul ücreti (devlet)</td><td>0 €</td></tr>
+              <tr><td>Öğrenci okul sigortası</td><td>~2–3 €</td></tr>
+              <tr><td>Geçim kanıtı (İspanya içinden, 600 €/ay × 12)</td><td>7.200 €</td></tr>
+              <tr><td>Sağlık sigortası yenileme <span class="est">tahmin</span></td><td>40–70 €/ay</td></tr>
+            </table>
+          </div>
+          <div class="card full">
+            <h4>Kontrol listesi</h4>
+            <ul class="chk">
+              <li><input type="checkbox" id="f4a"><label for="f4a">Kesin kayıt (<button class="t" data-t="matricula">matrícula</button>) belgesi okul mühürlü.</label></li>
+              <li><input type="checkbox" id="f4b"><label for="f4b">Aynı gün MERCURIO’dan <button class="t" data-t="ex00">EX-00</button> ile <button class="t" data-t="art52a">Art. 52.1.a</button> geçişi (kurs başlangıcından en az 2 ay önce).</label></li>
+              <li><input type="checkbox" id="f4c"><label for="f4c">Hesapta 7.200 € görünüyor (yoksa peşin kira ile yarıya düşürme planı).</label></li>
+              <li><input type="checkbox" id="f4d"><label for="f4d">Haziran 2027’de alınmış güncel apostilli + yeminli tercümeli <button class="t" data-t="adli">Türk adli sicil kaydı</button> (Aralık 2026 nüshası Temmuz’da 6 ayı geçmiş olur; sağlık raporu gerekmez).</label></li>
+              <li><input type="checkbox" id="f4e"><label for="f4e">2. yerleştirmeye kalındıysa: okuldan resmî takvim yazısı + <button class="t" data-t="sem325">Instrucción SEM 3/2025</button>.</label></li>
+            </ul>
+          </div>
+          <div class="card risk full">
+            <h4>Risk</h4>
+            <ul>
+              <li>Mevcut 400 bin TL (~7.000–7.150 €) Sevilla’da 5 ay yaşadıktan sonra 7.200 €’nun altına iner. Temmuz için aile takviyesi ya da peşin kira planı şart.</li>
+              <li>Lise denkliği bu sırada reddedilirse volante kaydı iptal olur → Senaryo B.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- F5 -->
+    <article class="phase" id="f5">
+      <div class="pside">
+        <p class="num">Aşama 5</p>
+        <h3>Devlet FP GIAT, 2 yıl</h3>
+        <p class="when">Eylül 2027 – Haziran 2029</p>
+        <span class="where">IES, Sevilla</span>
+        <div class="prog" data-p="f5">0 / 0 tamam<i><b></b></i></div>
+      </div>
+      <div class="pbody">
+        <p class="why"><button class="t" data-t="giat">FP GIAT</button>, 2.000 saatlik bir meslek programı. Bitirdiğinde Endülüs kokartı için gereken mesleki şartı karşılıyor. Okurken haftada 30 saate kadar yasal çalışma serbest.</p>
+        <div class="grid2">
+          <div class="card">
+            <h4>Ne okunuyor</h4>
+            <ul>
+              <li>Turistik destinasyonlar ve kaynaklar</li>
+              <li>Turist rehberliği ve eşlik süreçleri</li>
+              <li>Turizm bilgi hizmetleri, ürün tasarımı</li>
+              <li>Protokol, halkla ilişkiler, pazarlama</li>
+              <li>İngilizce + ikinci yabancı dil</li>
+              <li>İşletmede uygulama (<button class="t" data-t="fct">staj</button>) ve bitirme projesi</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Okurken gelir</h4>
+            <ul>
+              <li>Anıt dışı şehir yürüyüşleri, gastronomi ve kültür turları</li>
+              <li>Türk gruplarına <i>guía acompañante</i> (tur lideri)</li>
+              <li>Anıt içi anlatım (Alcázar, Katedral) kokartlı rehberle</li>
+            </ul>
+          </div>
+          <div class="card full">
+            <h4>Kontrol listesi</h4>
+            <ul class="chk">
+              <li><input type="checkbox" id="f5a"><label for="f5a">Her yıl TIE yenilemesi: devam + not belgesi, 7.200 €, sigorta.</label></li>
+              <li><input type="checkbox" id="f5b"><label for="f5b"><button class="t" data-t="eoi">EOI Sevilla</button> İngilizce: A2 → B2 (yeni kayıt 81,41 €, devam 59,04 €).</label></li>
+              <li><input type="checkbox" id="f5c"><label for="f5c"><button class="t" data-t="tys">Yunus Emre TYS</button> Türkçe C1 sınavı.</label></li>
+              <li><input type="checkbox" id="f5d"><label for="f5d">Junta Turizm biriminden “TYS C1 kabul ediliyor mu” sorusuna <b>yazılı</b> cevap.</label></li>
+              <li><input type="checkbox" id="f5e"><label for="f5e">Mezuniyete doğru iş teklifi ya da <button class="t" data-t="autonomo">autónomo</button> planı (Aşama 6 için).</label></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- F6 -->
+    <article class="phase" id="f6">
+      <div class="pside">
+        <p class="num">Aşama 6</p>
+        <h3>Öğrencilikten çalışma oturumuna</h3>
+        <p class="when">Haziran – Ağustos 2029</p>
+        <span class="where">MERCURIO</span>
+        <div class="prog" data-p="f6">0 / 0 tamam<i><b></b></i></div>
+      </div>
+      <div class="pbody">
+        <p class="why">Kokart için “çalışma hakkı olan yasal oturum” gerekiyor; öğrenci kalışı tek başına yetmiyor. GIAT bitince <button class="t" data-t="art190">Art. 190</button> ile 3 yıl beklemeden çalışma oturumuna geçilir.</p>
+        <div class="grid2">
+          <div class="card">
+            <h4>Kontrol listesi</h4>
+            <ul class="chk">
+              <li><input type="checkbox" id="f6a"><label for="f6a">GIAT diploması ya da diploma ücretini ödediğin belge.</label></li>
+              <li><input type="checkbox" id="f6b"><label for="f6b">İş sözleşmesi ya da autónomo iş planı.</label></li>
+              <li><input type="checkbox" id="f6c"><label for="f6c">TIE bitmeden önce başvuru.</label></li>
+            </ul>
+          </div>
+          <div class="card risk">
+            <h4>Risk</h4>
+            <ul><li>Başvuru öğrenci kartı bittikten sonra yapılırsa geçiş hakkı kaybolabilir. Haziran’da hazır ol.</li></ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- F7 -->
+    <article class="phase" id="f7">
+      <div class="pside">
+        <p class="num">Aşama 7</p>
+        <h3>Endülüs rehber kokartı</h3>
+        <p class="when">Sonbahar 2029</p>
+        <span class="where">Junta de Andalucía</span>
+        <div class="prog" data-p="f7">0 / 0 tamam<i><b></b></i></div>
+      </div>
+      <div class="pbody">
+        <p class="why">GIAT mezunlarına Endülüs’te sınavsız <button class="t" data-t="kokart">kokart</button> veriliyor (<button class="t" data-t="decreto">Decreto 8/2015 + 187/2020</button>). Geriye dil şartı kalıyor.</p>
+        <div class="grid2">
+          <div class="card">
+            <h4>Dil şartı</h4>
+            <table class="cost">
+              <tr><td>İspanyolca B2</td><td>FP ile muaf</td></tr>
+              <tr><td>1. yabancı dil C1</td><td>Türkçe (TYS)</td></tr>
+              <tr><td>2. yabancı dil B2</td><td>İngilizce (EOI)</td></tr>
+            </table>
+          </div>
+          <div class="card">
+            <h4>Kontrol listesi</h4>
+            <ul class="chk">
+              <li><input type="checkbox" id="f7a"><label for="f7a">GIAT diploması + dil belgeleri + çalışma oturumlu TIE.</label></li>
+              <li><input type="checkbox" id="f7b"><label for="f7b">Junta’ya habilitación başvurusu.</label></li>
+              <li><input type="checkbox" id="f7c"><label for="f7c"><button class="t" data-t="registro">Registro de Turismo de Andalucía</button> kaydı, kokart kartı.</label></li>
+            </ul>
+          </div>
+          <div class="card risk full">
+            <h4>Risk</h4>
+            <ul><li>Türkçenin ve TYS’nin kabulü yazılı teyit edilmeden plan kesin değil. Teyit gelmezse İngilizceyi C1’e çıkarmak gerekir, bu da 1–2 yıl ek süre demek.</li></ul>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- BÜTÇE -->
+  <section class="s" id="butce">
+    <div class="sh">
+      <h2>Bütçe: harcanan ve gösterilen para</h2>
+      <p>“Kanıt” kalemleri hesapta görünmesi gereken para; harcanmaz, ama o tarihte orada olmalı.</p>
+    </div>
+    <table class="btable">
+      <tr><th>Kalem</th><th>Ne zaman</th><th>Tür</th><th style="text-align:right">Tutar</th></tr>
+      <tr><td>Lise denklik harcı (Tasa 790-107)</td><td>Aralık 2026</td><td>Harcama</td><td class="n">~55 €</td></tr>
+      <tr><td>İlahiyat lisans denkliği harcı (Tasa 790-107)</td><td>Aralık 2026</td><td>Harcama</td><td class="n">166,50 €</td></tr>
+      <tr><td>Tercümeler (lise + lisans + adli sicil) <span class="est">tahmin</span></td><td>Aralık 2026</td><td>Harcama</td><td class="n">300–600 €</td></tr>
+      <tr><td>BLS İstanbul vize harcı + hizmet bedeli <span class="est">tahmin</span></td><td>Aralık 2026</td><td>Harcama</td><td class="n">~110–120 €</td></tr>
+      <tr><td>Sevilla Habla, 8 ay</td><td>Aralık 2026</td><td>Harcama</td><td class="n">3.400 €</td></tr>
+      <tr><td>Vize için geçim kanıtı</td><td>Ocak 2027</td><td>Kanıt</td><td class="n">12.000 €</td></tr>
+      <tr><td>Sağlık sigortası <span class="est">tahmin</span></td><td>Şubat 2027 →</td><td>Harcama</td><td class="n">40–70 €/ay</td></tr>
+      <tr><td>TIE kart harçları (ilk + yenilemeler)</td><td>2027–2029</td><td>Harcama</td><td class="n">~16 €/kart</td></tr>
+      <tr><td>Oturum geçişi için geçim kanıtı</td><td>Temmuz 2027</td><td>Kanıt</td><td class="n">7.200 €</td></tr>
+      <tr><td>Devlet GIAT öğrenim ücreti</td><td>2027–2029</td><td>Harcama</td><td class="n">0 €</td></tr>
+      <tr><td>EOI İngilizce (ön başvuru 1–20 Mayıs)</td><td>Yıllık</td><td>Harcama</td><td class="n">59–81 €</td></tr>
+      <tr><td>Yunus Emre TYS (Türkçe C1) sınav harcı</td><td>2028</td><td>Harcama</td><td class="n">sınavda teyit</td></tr>
+      <tr class="sum"><td>Özel okul yedeği (Cámara de Sevilla)</td><td>Yalnızca gerekirse</td><td>Harcama</td><td class="n">~4.075 €/yıl</td></tr>
+    </table>
+    <p class="muted" style="margin-top:10px;font-size:14px">Kira ve yaşam gideri dahil değil. “Tahmin” işaretli kalemler piyasa aralığı; resmî harçlar 2026 tutarları, başvuru anında teyit edilir.</p>
+  </section>
+
+  <!-- SÖZLÜK -->
+  <section class="s" id="sozluk">
+    <div class="sh">
+      <h2>Ne nedir? Sözlük</h2>
+      <p>Bir terime dokun, açıklaması açılsın. Sayfadaki altı noktalı her kelime buraya bağlı.</p>
+    </div>
+    <input class="gsearch" id="gq" type="search" placeholder="Ara: TIE, volante, kokart…" aria-label="Sözlükte ara">
+    <div class="ggrid" id="gg"></div>
+  </section>
+
+  <!-- KAYNAKLAR -->
+  <section class="s" id="kaynak">
+    <div class="sh">
+      <h2>Kaynaklar</h2>
+      <p>Lise denkliği bölümü bu belgelerin tek tek okunmasıyla yazıldı.</p>
+    </div>
+    <ol class="src">
+      <li><a href="https://www.educacionfpydeportes.gob.es/dam/jcr:0d3e51f2-6f67-4a78-9a57-1b4c5172c665/turquia.pdf" target="_blank" rel="noopener">Eğitim Bakanlığı · Türkiye denklik tablosu (PDF)</a>: 12º → Bachiller, 11º → 1º Bachillerato; “sin valor jurídico”.</li>
+      <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-1988-3633" target="_blank" rel="noopener">Real Decreto 104/1988</a>, md. 6 (tablo yoksa dosya bazında karar) ve md. 15 (şartlı kayıt).</li>
+      <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-1996-10449" target="_blank" rel="noopener">Orden 30 Nisan 1996</a>: volante, önceki tüm sınıfların tamamlanmış olması şartı.</li>
+      <li>Bakanlık · Homologación de títulos no universitarios, 2026 yönetmelik taslağı (Proyecto RD, MAIN 03/09/2026): henüz yürürlükte değil; yürürlükten önceki başvurular eski kurala tabi.</li>
+      <li><a href="https://www.juntadeandalucia.es/educacion/portals/web/formacion-profesional-andaluza" target="_blank" rel="noopener">Junta de Andalucía · FP Andaluza</a>: başvuru takvimi, cupo dağılımı (Bachiller %45, Prueba %10, üniversite %5).</li>
+      <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2024-24099" target="_blank" rel="noopener">Real Decreto 1155/2024</a> (Yabancılar Yönetmeliği): md. 52, 55, 190.</li>
+      <li>Decreto 8/2015 ve Decreto 187/2020 (Junta de Andalucía, turist rehberliği).</li>
+      <li>Rusya denklik tablosu (Bakanlık): 11 yıllık lise → tam Bachiller (12 yıl kuralının katı olmadığına örnek).</li>
+    </ol>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">dogen.es · Fırat Daşdöğen, Sevilla · Bu rehber kişiye özel hazırlanmıştır; hukuki görüş değildir. Kurallar değişebilir, her adımda resmî kaynaktan teyit edilir.</div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dt" aria-hidden="true">
+  <div class="dh">
+    <div><p class="cat" id="dc"></p><h3 id="dt"></h3><p class="full" id="df"></p></div>
+    <button class="x" id="dx" type="button" aria-label="Kapat">×</button>
+  </div>
+  <div class="db" id="db"></div>
+</aside>
+
+<script>
+const T = {
+  // EĞİTİM
+  giat:{c:"Eğitim",n:"FP GIAT",f:"Técnico Superior en Guía, Información y Asistencias Turísticas",d:"İspanya’nın 2 yıllık (2.000 saat) devlet meslek yüksekokulu programı: turist rehberliği, turizm danışma ve tur eşliği. Lise sonrası ‘Grado Superior’ seviyesinde.",y:"Endülüs’te bu diplomaya sahip olanlar rehber kokartını sınavsız alabiliyor. Devlet okulunda ücretsiz ve yüz yüze okunursa öğrenci oturumu ile 30 saat çalışma hakkı veriyor.",r:["kokart","art52a","cupo"]},
+  bachiller:{c:"Eğitim",n:"Título de Bachiller",f:"İspanyol lise diploması",d:"İspanya’da 10 yıl zorunlu eğitim + 2 yıl Bachillerato sonrası verilen lise bitirme diploması (toplam 12 yıl).",y:"FP Grado Superior’a girmenin ana yolu. Senin Türk lise diplomanın bu diplomaya ‘homologación’ ile eşit sayılması gerekiyor.",r:["homologacion","convalidacion","volante"]},
+  homologacion:{c:"Eğitim",n:"Homologación",f:"Diploma denkliği (tam)",d:"Yabancı bir diplomanın İspanyol diplomasıyla birebir aynı değerde sayılması. Eğitim Bakanlığı verir; karar bir ‘credencial’ belgesiyle bildirilir.",y:"Lise diplomanın Título de Bachiller’e homologe edilmesi FP GIAT’a girişin akademik kapısı. 3+1 hazırlık sorusu tam burada.",r:["convalidacion","volante","tasa107","rd104"]},
+  convalidacion:{c:"Eğitim",n:"Convalidación",f:"Kısmi denklik",d:"Yabancı eğitimin bir diploma olarak değil, belli bir İspanyol sınıfı olarak (ör. ‘1º de Bachillerato’) sayılması. Tam diploma vermez.",y:"Riskli senaryo bu: Bakanlık hazırlık yılını saymazsa lisen yalnızca 1º Bachillerato sayılabilir. O zaman FP Superior’a bu yoldan girilemez, yedek kapılar devreye girer.",r:["homologacion","prueba","equivalencia"]},
+  volante:{c:"Eğitim",n:"Volante",f:"Volante de inscripción condicional",d:"Denklik başvurusu yapıldığını gösteren belge. Karar çıkana kadar okula ‘şartlı’ kayıt olmanı sağlar. Mühür tarihinden itibaren 6 ay içinde kayıt için geçerlidir.",y:"Yalnızca üzerinde adı yazan okul ve tek bir akademik yıl için geçerli. Aralık başında mühürlenirse Haziran’da süresi dolar; karar çıkmadıysa Mayıs/Haziran’da yenisi istenir. Denklik reddedilirse kayıt iptal olur. Volante ile başvuruda puan geçici olarak 5,00 sayılır.",r:["homologacion","puan","matricula"]},
+  equivalencia:{c:"Eğitim",n:"Equivalencia",f:"Equivalencia a titulación y nivel académico de Grado",d:"Yabancı üniversite diplomasının İspanyol ‘Grado’ (lisans) seviyesine eşdeğer sayılması. Bakanlık verir, genelde 6–12 ay sürer.",y:"Yedek kapı: İlahiyat lisansın denk sayılırsa FP GIAT’a ‘üniversite mezunu’ kontenjanından (cupo 3) girersin; lise sorusu tamamen devre dışı kalır.",r:["cupo","convalidacion"]},
+  cupo:{c:"Eğitim",n:"Cupo",f:"Kontenjan dilimi",d:"Endülüs FP Grado Superior’da yerler giriş yoluna göre bölünür: Bachiller ile gelenler %45 (cupo 1), giriş sınavıyla gelenler %10 (cupo 2), üniversite mezunları %5 (cupo 3) vb. Her dilim kendi içinde not sırasıyla yerleşir.",y:"Hangi belgeyle başvurduğun hangi kuyrukta yarıştığını belirler.",r:["prueba","equivalencia","puan"]},
+  prueba:{c:"Eğitim",n:"Prueba de Acceso",f:"Prueba de acceso a ciclos formativos de Grado Superior",d:"Bachiller’i olmayanlar için FP Grado Superior giriş sınavı. 19 yaş üstü girebilir, denklik istemez. Endülüs’te kayıt Ocak’ta, sınav baharda; sınav İspanyolca.",y:"Lise denkliği olmazsa sigorta. 2027 Nisan’da 2 aylık İspanyolcayla zor; 2028 sınavı daha gerçekçi.",r:["cupo","convalidacion"]},
+  secretaria:{c:"Eğitim",n:"Secretaría Virtual",f:"Secretaría Virtual de los Centros Educativos (Junta)",d:"Endülüs eğitim bakanlığının online başvuru portalı. FP başvurusu, tercihler ve yerleştirme sonuçları burada.",y:"15–30 Haziran 2027 arası GIAT başvurun buradan yapılacak. FNMT sertifikası ya da başvuru şifresiyle girilir.",r:["fnmt","adjudicacion","cupo"]},
+  adjudicacion:{c:"Eğitim",n:"Adjudicación",f:"Yerleştirme",d:"Başvuruların puan sırasına göre okullara dağıtıldığı liste. Endülüs’te Temmuz’da 1. ve 2. yerleştirme var.",y:"1. yerleştirmede (9–10 Temmuz) çıkman oturum geçişi için en rahat senaryo.",r:["matricula","sem325"]},
+  matricula:{c:"Eğitim",n:"Matrícula",f:"Kesin kayıt",d:"Yerleştiğin okula kaydını kesinleştirme işlemi. Süresinde yapılmazsa yer kaybedilir.",y:"Matrícula belgesi MERCURIO’daki oturum geçişinin ana belgesi; aynı gün yüklenir.",r:["mercurio","adjudicacion"]},
+  puan:{c:"Eğitim",n:"Puan tuzağı",f:"Volante ile geçici 5,00 puan",d:"Denklik kararı henüz çıkmadan volante ile başvurursan not ortalaman bilinmediği için sıralamada 5,00 (en düşük geçer not) yazılır.",y:"Popüler devlet okullarında 5,00 ile yer kapmak zor olabilir. Denklik kararının Haziran 2027’den önce çıkması için başvuru Aralık 2026’da.",r:["volante","cupo"]},
+  fct:{c:"Eğitim",n:"Staj (Formación en empresa)",f:"Formación en centros de trabajo / FP dual",d:"FP programının zorunlu işletme uygulaması. Turizm ajansı, otel, müze, turizm ofisi gibi yerlerde yapılır.",y:"Sektöre girişin ve ileride iş teklifinin en kolay yolu (Aşama 6 için önemli).",r:["giat","art190"]},
+  eoi:{c:"Dil",n:"EOI",f:"Escuela Oficial de Idiomas",d:"İspanya’nın devlet dil okulları. Ucuz, resmî ve geçerli seviye belgesi (A2–C2) veriyor.",y:"İngilizceyi A2’den B2’ye çıkaracağın yer. Sevilla EOI: yeni kayıt 81,41 €, devam 59,04 €. Türkçe ve Arapça bölümü yok.",r:["tys","kokart"]},
+  tys:{c:"Dil",n:"TYS",f:"Türkçe Yeterlik Sınavı · Yunus Emre Enstitüsü",d:"Yunus Emre Enstitüsü’nün 4 beceriyi (okuma, dinleme, yazma, konuşma) ölçen resmî Türkçe sınavı; ALTE Q-Mark onaylı.",y:"Kokart için gereken ‘bir yabancı dilde C1’ şartını Türkçe ile karşılama planı. Junta’nın bu belgeyi kabul ettiği yazılı teyit edilmeli.",r:["kokart","eoi"]},
+  dele:{c:"Dil",n:"DELE / SIELE",f:"İspanyolca resmî dil sınavları (Instituto Cervantes)",d:"DELE: süresiz geçerli İspanyolca diploması. SIELE: bilgisayarda, daha esnek, 5 yıl geçerli.",y:"Dil kursu kalışının tek seferlik uzatılması gerekirse sınav kaydı gösterilir (Art. 55.5). Kokart için İspanyolca B2’den FP diploması zaten muaf tutuyor.",r:["art555","sevillahabla"]},
+  sevillahabla:{c:"Dil",n:"Sevilla Habla",f:"Sevilla’da dil okulu",d:"Seçilen özel İspanyolca okulu. 8 aylık yoğun kurs, ~3.400 €.",y:"Vizenin dayanağı bu kurs. Kayıt öncesi ‘vize reddinde ücret iadesi’ şartı yazılı alınmalı. Başlangıç 22 Şubat – 1 Mart 2027.",r:["art52e","bls"]},
+  ales:{c:"Dil",n:"ALES",f:"Akademik Personel ve Lisansüstü Eğitimi Giriş Sınavı",d:"Türkiye’de lisansüstü başvurularında kullanılan sınav.",y:"İspanyada şart değil; yüksek lisans yedek yolu ve Türkiye’deki seçenekler için elde tutulan bir skor.",r:["equivalencia"]},
+  // GÖÇ
+  tie:{c:"Göç / oturum",n:"TIE",f:"Tarjeta de Identidad de Extranjero",d:"İspanya’da yaşayan yabancıların fotoğraflı kimlik kartı. Vizeyle girdikten sonraki 30 gün içinde polis ofisinde parmak izi verilerek çıkarılır.",y:"İlk kartın Kasım 2027’ye kadar geçerli olacak; Temmuz 2027 geçişi bu süre içinde yapılmalı. Her yıl yenilenir.",r:["padron","art52e","art52a"]},
+  padron:{c:"Göç / oturum",n:"Empadronamiento",f:"Padrón municipal · belediye ikamet kaydı",d:"Yaşadığın adresin belediyeye kaydı. Kira sözleşmesi ve pasaportla yapılır.",y:"TIE randevusu, sağlık, okul ve neredeyse her resmî iş için istenir. Sevilla’ya varınca ilk hafta.",r:["tie"]},
+  mercurio:{c:"Göç / oturum",n:"MERCURIO",f:"Plataforma Mercurio",d:"İspanya’nın yabancılar için online oturum başvuru platformu (öğrenci kalışları dahil).",y:"Temmuz 2027’de dil kalışından yükseköğretim kalışına geçişi buradan, okula kayıt olduğun gün yapacaksın. FNMT sertifikası gerekir.",r:["ex00","art52a","fnmt"]},
+  ex00:{c:"Göç / oturum",n:"EX-00",f:"Öğrenci kalışı başvuru formu",d:"Eğitim amaçlı kalış (estancia por estudios) için kullanılan resmî başvuru formu.",y:"MERCURIO’da Art. 52.1.a geçişini bu formla yapacaksın.",r:["mercurio","art52a"]},
+  art52e:{c:"Göç / oturum",n:"Art. 52.1.e",f:"RD 1155/2024 · dil kursu vb. için öğrenci kalışı",d:"Yabancılar Yönetmeliği’nde yükseköğretim dışındaki eğitimler (dil kursu gibi) için öğrenci kalışı maddesi.",y:"İlk vizen bu maddeye dayanacak. Otomatik çalışma hakkı vermiyor.",r:["art52a","art555","tie"]},
+  art52a:{c:"Göç / oturum",n:"Art. 52.1.a",f:"RD 1155/2024 · yükseköğretim için öğrenci kalışı",d:"Üniversite ve FP Grado Superior gibi yükseköğretim programları için öğrenci kalışı maddesi.",y:"GIAT kaydından sonra geçeceğin madde. Haftada 30 saate kadar çalışma hakkı (işçi ya da autónomo) bununla geliyor. Yalnızca yüz yüze programlar için.",r:["art52e","art190","mercurio"]},
+  art555:{c:"Göç / oturum",n:"Art. 55.5",f:"RD 1155/2024 · dil kalışının uzatılması",d:"Dil kursu kalışının bir kez uzatılabilmesini düzenleyen hüküm; resmî dil sınavına (DELE/SIELE) kayıt gösterilir.",y:"Planın B hali: Temmuz geçişi gecikirse dil kalışını bir dönem daha uzatma imkânı.",r:["dele","art52e"]},
+  art190:{c:"Göç / oturum",n:"Art. 190",f:"RD 1155/2024 · öğrencilikten çalışma oturumuna geçiş",d:"Yükseköğretimini bitiren öğrencinin, 3 yıl beklemeden çalışma izinli oturuma (işçi ya da serbest çalışan) geçmesini sağlayan madde.",y:"Kokart için ‘çalışma hakkı olan oturum’ şartını bu karşılıyor. Haziran 2029’da, öğrenci kartın bitmeden başvurulur.",r:["autonomo","kokart","art52a"]},
+  sem325:{c:"Göç / oturum",n:"Instrucción SEM 3/2025",f:"Göç Devlet Sekreterliği talimatı",d:"Göç idaresinin başvuruları nasıl değerlendireceğine dair iç talimatı.",y:"2. yerleştirmede çıkarsan ‘2 ay önce başvuru’ süresi kayabilir; okulun resmî takvim yazısıyla birlikte bu talimata dayanılır.",r:["adjudicacion","mercurio"]},
+  medios:{c:"Göç / oturum",n:"Medios económicos",f:"Geçim kaynağı kanıtı",d:"Kalış süresince kendini geçindirebileceğini gösteren banka bakiyesi ya da düzenli gelir. Yasal alt sınır ayda 600 € (IPREM’in %100’ü).",y:"Vizede BLS pratiği ayda 1.500 € (8 ay için 12.000 €). İspanya içindeki Temmuz geçişinde yasal 600 €/ay (12 ay = 7.200 €).",r:["bls","seguro"]},
+  seguro:{c:"Göç / oturum",n:"Sağlık sigortası",f:"Seguro médico privado",d:"İspanya’da faaliyet gösteren bir şirketten, tam kapsamlı, muafiyetsiz ve ek ödemesiz (sin copago) özel sağlık sigortası.",y:"Vize ve her TIE yenilemesinde istenir.",r:["medios","tie"]},
+  adli:{c:"Göç / oturum",n:"Adli sicil kaydı",f:"Certificado de antecedentes penales",d:"Son yıllarda yaşadığın ülkelerden sabıka kaydı belgesi. Türkiye’de e-Devlet’ten alınır, apostil + tercüme gerekir.",y:"6 aydan uzun öğrenci vizesi için şart. Genelde 3 aydan eski olmamalı; randevuya göre zamanla.",r:["apostil","jurado","medico"]},
+  medico:{c:"Göç / oturum",n:"Sağlık raporu",f:"Certificado médico",d:"Uluslararası sağlık mevzuatına göre halk sağlığı açısından ciddi bir hastalık olmadığını belirten doktor raporu.",y:"6 aydan uzun öğrenci vizesi için şart; İspanyolca tercüme ile.",r:["adli","bls"]},
+  bls:{c:"Göç / oturum",n:"BLS International",f:"İspanya vize başvuru merkezi",d:"İspanya’nın Türkiye’deki vize başvurularını kabul eden aracı firma. Evrakı alır, konsolosluğa iletir; kararı konsolosluk verir.",y:"İstanbul ofisinde randevu Aralık sonu – Ocak başı hedefleniyor.",r:["medios","art52e"]},
+  autonomo:{c:"Göç / oturum",n:"Autónomo",f:"Serbest çalışan",d:"İspanya’da kendi adına çalışan kişi statüsü; Sosyal Güvenlik’e (RETA) aylık prim ödenir.",y:"Rehberlerin çoğu autónomo çalışıyor. Art. 190 geçişinde bir iş planıyla bu yol seçilebilir.",r:["art190"]},
+  // EVRAK
+  apostil:{c:"Evrak",n:"Apostil",f:"Apostilla de La Haya",d:"Bir resmî belgenin başka ülkede geçerli olması için yapılan uluslararası tasdik (Lahey Sözleşmesi). Türkiye’de MEB belgeleri için Kaymakamlık ya da Valilik yapar.",y:"Lise diploması, not dökümü, İlahiyat diploması ve adli sicil apostilsiz İspanya’da kabul edilmez. Önce apostil, sonra tercüme.",r:["jurado","ilcemem"]},
+  jurado:{c:"Evrak",n:"Yeminli tercüme",f:"Traducción jurada",d:"İspanya Dışişleri Bakanlığı’nın yetki verdiği ‘traductor jurado’nun imzalı-mühürlü resmî tercümesi. Konsolosluk tercümesi de kabul edilir.",y:"Türkiye’deki noter onaylı tercüme yetmeyebilir; listede kayıtlı traductor jurado ile çalışmak en güvenlisi.",r:["apostil"]},
+  ilcemem:{c:"Evrak",n:"İlçe MEM",f:"İlçe Milli Eğitim Müdürlüğü",d:"Okul kapandıysa ya da eski kayıtlar devredildiyse öğrenci arşivinin tutulduğu yer.",y:"2008 öncesi mezunların not dökümü e-Okul/e-Devlet’te tam yok; ıslak imzalı belge okul ya da İlçe MEM arşivinden alınır. Hazırlık yılının ayrı görünmesi şart.",r:["apostil","homologacion"]},
+  tasa107:{c:"Evrak",n:"Tasa 790-107",f:"Modelo 790 · código 107",d:"Eğitim Bakanlığı denklik başvuru harcı (Modelo 790 formuyla). Okul diploması denkliği için ~55 €.",y:"Başvuru dosyasına ödeme belgesi eklenir. Tutar her yıl güncellenir; ödeme anında teyit et.",r:["homologacion","volante"]},
+  sede:{c:"Evrak",n:"Sede electrónica",f:"Online resmî işlem ofisi",d:"İspanyol kurumlarının online başvuru ve dosya takip sitesi.",y:"Denklik dosyanın durumunu ve kararı buradan görürsün (FNMT gerekir).",r:["fnmt"]},
+  fnmt:{c:"Evrak",n:"FNMT sertifikası",f:"Certificado digital de la FNMT",d:"İspanya Ulusal Darphanesi’nin verdiği ücretsiz dijital kimlik sertifikası. NIE ile alınır, kimlik doğrulaması için bir kez ofise gidilir.",y:"MERCURIO, Secretaría Virtual ve sede electrónica işlemlerinin anahtarı. TIE’den hemen sonra alınmalı.",r:["mercurio","secretaria","sede"]},
+  // HUKUK
+  rd104:{c:"Hukuk",n:"RD 104/1988",f:"Real Decreto 104/1988 · okul diploması denkliği",d:"Yabancı okul diplomalarının denkliğini düzenleyen yönetmelik. Md. 6: tablo yoksa içerik, süre, emsal kararlar ve karşılıklılığa göre karar. Md. 15: denklik beklenirken şartlı kayıt.",y:"Senin eski sistem diploman Türkiye tablosunda olmadığı için kararın hukuki dayanağı bu madde.",r:["homologacion","volante","silencio"]},
+  silencio:{c:"Hukuk",n:"Silencio negativo",f:"Olumsuz sessizlik",d:"İdare yasal süre içinde cevap vermezse başvurunun reddedilmiş sayılması.",y:"Yeni yönetmelik taslağında süre 3 ay. Taslak henüz yürürlükte değil; yürürlüğe girmeden yapılan başvurular eski kurala göre işler. Cevap gecikirse itiraz yolu açılır.",r:["reposicion","rd104"]},
+  reposicion:{c:"Hukuk",n:"Recurso de reposición",f:"İdari itiraz",d:"Olumsuz karara karşı aynı kuruma 1 ay içinde yapılan itiraz. Alternatif: 2 ay içinde idare mahkemesi (contencioso).",y:"Lise denkliği yalnızca 1º Bachillerato çıkarsa hazırlık yılı belgeleriyle itiraz edilebilir.",r:["silencio","convalidacion"]},
+  decreto:{c:"Hukuk",n:"Decreto 8/2015 + 187/2020",f:"Endülüs turist rehberliği yönetmeliği",d:"Junta de Andalucía’nın resmî turist rehberliğini düzenleyen kararnamesi ve 2020 değişikliği: kimler, hangi diploma ve dil şartıyla rehber olabilir.",y:"GIAT mezunlarına sınavsız kokart ve dil şartları (İspanyolca B2 + bir dil C1 + bir dil B2) buradan.",r:["kokart","registro"]},
+  kokart:{c:"Hukuk",n:"Kokart",f:"Habilitación de Guía de Turismo de Andalucía",d:"Endülüs’te resmî turist rehberi olarak çalışma yetkisi ve kartı. Junta de Andalucía verir.",y:"Hedefin kendisi. Anıtların içinde (Alcázar, Katedral, Alhambra) anlatım yapmak için gerekiyor.",r:["decreto","registro","giat"]},
+  registro:{c:"Hukuk",n:"Registro de Turismo de Andalucía",f:"Endülüs Turizm Sicili",d:"Turizm hizmeti veren kişi ve işletmelerin kayıtlı olduğu resmî sicil.",y:"Kokart alındıktan sonra rehber olarak buraya kaydolunur.",r:["kokart"]}
+};
+const CAT_ORDER=["Eğitim","Göç / oturum","Evrak","Dil","Hukuk"];
+const $=s=>document.querySelector(s);
+const drawer=$("#drawer"), scrim=$("#scrim");
+let lastFocus=null;
+function chip(k){const t=T[k];return t?`<button class="t" type="button" data-t="${k}">${t.n}</button>`:"";}
+function openTerm(k){
+  const t=T[k]; if(!t) return;
+  $("#dc").textContent=t.c; $("#dt").textContent=t.n; $("#df").textContent=t.f||"";
+  $("#db").innerHTML=`<h5>Ne nedir?</h5><p>${t.d}</p><h5>Senin süreçte</h5><div class="you">${t.y}</div>${t.r&&t.r.length?`<h5>İlgili</h5><div class="rel">${t.r.map(chip).join("")}</div>`:""}`;
+  if(!drawer.classList.contains("on")) lastFocus=document.activeElement;
+  drawer.classList.add("on"); scrim.classList.add("on"); drawer.setAttribute("aria-hidden","false");
+  $("#dx").focus({preventScroll:true}); $("#db").scrollTop=0;
+}
+function closeTerm(){drawer.classList.remove("on");scrim.classList.remove("on");drawer.setAttribute("aria-hidden","true");if(lastFocus)lastFocus.focus({preventScroll:true});}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-t]"); if(b){e.preventDefault();openTerm(b.dataset.t);return;}
+});
+$("#dx").onclick=closeTerm; scrim.onclick=closeTerm;
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&drawer.classList.contains("on"))closeTerm();});
+
+// glossary grid
+const norm=x=>x.toLocaleLowerCase("tr").replace(/ı/g,"i").normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+function renderG(q=""){
+  q=norm(q.trim());
+  let h="";
+  for(const c of CAT_ORDER){
+    const items=Object.entries(T).filter(([k,t])=>t.c===c&&(!q||norm(t.n+" "+(t.f||"")+" "+t.d).includes(q)));
+    if(!items.length) continue;
+    h+=`<p class="gcat">${c}</p>`+items.map(([k,t])=>`<button class="gitem" type="button" data-t="${k}"><b>${t.n}</b><span>${t.f||""}</span></button>`).join("");
+  }
+  $("#gg").innerHTML=h||`<p class="muted">Sonuç yok.</p>`;
+}
+renderG(); $("#gq").addEventListener("input",e=>renderG(e.target.value));
+
+// checklists (per-viewer convenience)
+const KEY="dogen-muc-chk-v1"; let st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+function prog(){
+  document.querySelectorAll(".prog").forEach(p=>{
+    const box=document.getElementById(p.dataset.p).querySelectorAll(".chk input");
+    const done=[...box].filter(i=>i.checked).length;
+    p.firstChild.textContent=`${done} / ${box.length} tamam`;
+    p.querySelector("b").style.width=(box.length?done/box.length*100:0)+"%";
+  });
+}
+document.querySelectorAll(".chk input").forEach(i=>{
+  i.checked=!!st[i.id];
+  i.addEventListener("change",()=>{st[i.id]=i.checked;try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}prog();});
+});
+// clicking a term inside a label shouldn't toggle the checkbox
+document.querySelectorAll(".chk label .t").forEach(b=>b.addEventListener("click",e=>e.preventDefault()));
+prog();
+
+// nav highlight
+const links=[...document.querySelectorAll(".nav a")];
+const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+en.target.id));const on=links.find(a=>a.classList.contains("on"));if(on){const n=document.getElementById("nav");n.scrollTo({left:on.offsetLeft-n.clientWidth/2+on.clientWidth/2,behavior:"smooth"});}}})},{rootMargin:"-40% 0px -55% 0px"});
+document.querySelectorAll("#simdi,#lise,.phase,#butce,#sozluk").forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
