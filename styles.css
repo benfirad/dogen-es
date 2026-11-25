@@ -1,6 +1,7 @@
 /* dogen.es — "Cal & Azulejo" (bkz. BRAND.md). Logo: logo.svg, değişmez. */
 
 :root {
+  interpolate-size: allow-keywords;
   --cal: #f6f4ef;
   --cal-2: #eeeae1;
   --tinta: #16181d;
@@ -83,7 +84,7 @@ h1, h2, h3 { margin: 0; font-family: var(--f-display); font-weight: 500; font-va
 /* Hizmetler: satır satır */
 .rows { border-top: 1px solid var(--tinta); }
 .row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 8px clamp(32px, 6vw, 80px); padding: 26px 0; border-bottom: 1px solid var(--linea); }
-.row h3 { font-size: 22px; grid-row: span 2; }
+.row h3 { font-size: 22px; grid-row: span 3; transition: transform .35s cubic-bezier(.2,.7,.2,1); }
 .row .incl { font-size: 15px; color: var(--pizarra); }
 
 /* Süreç tablosu */
@@ -121,12 +122,84 @@ h1, h2, h3 { margin: 0; font-family: var(--f-display); font-weight: 500; font-va
 .footer-row .logo svg { height: 24px; }
 .legal { font-size: 13px; color: var(--pizarra); max-width: 620px; line-height: 1.55; }
 
+/* ---- Hareket ---------------------------------------------------------- */
+:root { --ease: cubic-bezier(.2, .7, .2, 1); }
+
+/* Menü: aktif bölüm */
+.nav a { position: relative; }
+.nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--albero); transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease); }
+.nav a.is-current { color: var(--tinta); }
+.nav a.is-current::after { transform: scaleX(1); }
+.nav a:hover { text-decoration: none; }
+.site-header { transition: transform .35s var(--ease); }
+.site-header.is-hidden { transform: translateY(-100%); }
+
+/* Başlık: kelime kelime */
+.split .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .08em; margin-bottom: -.08em; }
+.split .w > span { display: inline-block; transform: translateY(105%); transition: transform .8s var(--ease); transition-delay: calc(var(--i) * 55ms + 80ms); }
+.split.is-in .w > span { transform: none; }
+
+/* Bölüm başlığı altı çizgi */
+.block h2 { position: relative; padding-bottom: 14px; }
+.block h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background: var(--albero); transform: scaleX(0); transform-origin: left; transition: transform .7s var(--ease) .1s; }
+.block h2.is-in::after { transform: scaleX(1); }
+
+/* Çini karolar */
+.arch { touch-action: pan-y; }
+#tiles .tile .rot { transform-box: fill-box; transform-origin: center; transition: transform 1s var(--ease), opacity .6s ease; }
+#tiles .tile.pre .rot { transform: rotate(-90deg) scale(.4); opacity: 0; }
+#tiles .tile .hit { fill: transparent; }
+#tiles .tile .dot { transition: fill .4s ease; }
+#tiles .tile.hot .dot { fill: #f6f4ef; }
+
+/* Hizmet satırları */
+.row { position: relative; isolation: isolate; }
+.row::before { content: ""; position: absolute; inset: 0 calc(var(--gutter) * -0.5); background: var(--cal-2); z-index: -1; opacity: 0; transform: scaleY(.92); transition: opacity .3s ease, transform .35s var(--ease); border-radius: 4px; }
+.row:hover::before, .row:focus-within::before { opacity: 1; transform: none; }
+.row:hover h3 { transform: translateX(6px); }
+.row-link { justify-self: start; margin-top: 6px; font-size: 15px; font-weight: 500; color: var(--azulejo); text-decoration: none; }
+.row-link span:last-child { display: inline-block; transition: transform .3s var(--ease); }
+.row-link:hover span:first-child { text-decoration: underline; text-underline-offset: 4px; }
+.row-link:hover span:last-child, .row:hover .row-link span:last-child { transform: translateX(4px); }
+
+/* Süreç: kaydırmaya bağlı */
+.steps-bar { height: 2px; background: var(--linea); margin-bottom: -1px; position: relative; z-index: 1; }
+.steps-bar span { display: block; height: 100%; background: var(--azulejo); transform-origin: left; transform: scaleX(var(--p, 0)); }
+.steps tbody tr { transition: opacity .4s ease; }
+.steps .n { transition: color .3s ease; }
+.steps tbody th > span:last-child { transition: color .3s ease; }
+.js-steps .steps tbody tr { opacity: .45; }
+.js-steps .steps tbody tr.is-done { opacity: .8; }
+.js-steps .steps tbody tr.is-active { opacity: 1; }
+.steps tbody tr.is-active .n, .steps tbody tr.is-active th > span:last-child { color: var(--azulejo); }
+
+/* SSS: yumuşak aç/kapa */
+.faq details::details-content { height: 0; overflow: clip; transition: height .35s var(--ease), content-visibility .35s allow-discrete; }
+.faq details[open]::details-content { height: auto; }
+.faq summary::after { transition: transform .3s var(--ease); }
+
+/* Dil geçişi */
+main, .legal { transition: opacity .18s ease; }
+.is-swapping main, .is-swapping .legal { opacity: 0; }
+
+/* Saat */
+.clock dd { font-variant-numeric: tabular-nums; }
+.clock .diff { display: block; font-size: 14px; font-weight: 400; color: var(--pizarra); margin-top: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0s !important; transition-delay: 0s !important; animation: none !important; }
+  .split .w > span { transform: none; }
+  #tiles .tile.pre .rot { transform: none; opacity: 1; }
+  .js-steps .steps tbody tr { opacity: 1; }
+}
+
 /* Responsive */
 @media (max-width: 860px) {
   .nav { display: none; }
   .lang { margin-left: auto; }
   .hero-grid, .block-head, .row, .about-grid { grid-template-columns: 1fr; }
   .row h3 { grid-row: auto; }
+  .row::before { inset: 0 calc(var(--gutter) * -1); border-radius: 0; }
   .arch-figure { justify-self: start; max-width: 280px; }
 
   .steps thead { display: none; }

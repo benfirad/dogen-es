@@ -46,7 +46,7 @@
       <div class="wrap hero-grid">
         <div class="hero-text">
           <p class="kicker" data-i18n="hero_kicker">Eğitim ve yerleşim danışmanlığı · Sevilla</p>
-          <h1 data-i18n="hero_h1">İspanya’da okumak isteyenlere Sevilla’dan rehberlik.</h1>
+          <h1 class="split" data-i18n="hero_h1">İspanya’da okumak isteyenlere Sevilla’dan rehberlik.</h1>
           <p class="lead" data-i18n="hero_lead">Dil okulu, devlet mesleki eğitimi (FP) ya da üniversite: hangi yolun size uyduğunu birlikte belirliyor, okul kaydından vize dosyasına ve İspanya’daki ilk aya kadar süreci sizinle yürütüyoruz.</p>
           <div class="actions">
             <a class="btn btn-primary" href="https://wa.me/34666104496" target="_blank" rel="noopener" data-i18n="cta_wa">WhatsApp’tan yazın</a>
@@ -55,7 +55,7 @@
         </div>
 
         <figure class="arch-figure">
-          <div class="arch" aria-hidden="true">
+          <div class="arch" id="arch" aria-hidden="true">
             <svg viewBox="0 0 440 550" preserveAspectRatio="xMidYMid slice">
               <defs>
                 <pattern id="azulejo" width="88" height="88" patternUnits="userSpaceOnUse">
@@ -72,7 +72,8 @@
                   <path d="M.5.5h87v87H.5z" fill="none" stroke="#f6f4ef" stroke-opacity=".14"/>
                 </pattern>
               </defs>
-              <rect width="100%" height="100%" fill="url(#azulejo)"/>
+              <rect id="tile-fallback" width="100%" height="100%" fill="url(#azulejo)"/>
+              <g id="tiles"></g>
             </svg>
           </div>
           <figcaption data-i18n="arch_cap">Desen: Sevilla avlularının çinilerinden.</figcaption>
@@ -92,21 +93,25 @@
             <h3 data-i18n="s1_t">Dil okulu</h3>
             <p data-i18n="s1_d">Instituto Cervantes akreditasyonlu okullarda, öğrenci vizesi şartlarını karşılayan yoğun İspanyolca programları.</p>
             <p class="incl" data-i18n="s1_i">Seviye tespiti, okul seçimi, kayıt, konaklama yönlendirmesi</p>
+            <a class="row-link" data-svc="s1_t" href="https://wa.me/34666104496" target="_blank" rel="noopener"><span data-i18n="row_cta">Bu yol için yazın</span> <span aria-hidden="true">→</span></a>
           </div>
           <div class="row">
             <h3 data-i18n="s2_t">Mesleki eğitim (FP)</h3>
             <p data-i18n="s2_d">İspanya devlet okullarında ücretsiz, iki yıllık Grado Superior programları.</p>
             <p class="incl" data-i18n="s2_i">Bölüm ve okul seçimi, lise diploması denkliği (homologación), başvuru takvimi</p>
+            <a class="row-link" data-svc="s2_t" href="https://wa.me/34666104496" target="_blank" rel="noopener"><span data-i18n="row_cta">Bu yol için yazın</span> <span aria-hidden="true">→</span></a>
           </div>
           <div class="row">
             <h3 data-i18n="s3_t">Üniversite</h3>
             <p data-i18n="s3_d">UNEDasiss akreditasyonu ve Endülüs ortak başvuru sistemi DUA üzerinden devlet üniversitelerine başvuru.</p>
             <p class="incl" data-i18n="s3_i">UNEDasiss kaydı, DUA ön kaydı, bölüm tercih sırası</p>
+            <a class="row-link" data-svc="s3_t" href="https://wa.me/34666104496" target="_blank" rel="noopener"><span data-i18n="row_cta">Bu yol için yazın</span> <span aria-hidden="true">→</span></a>
           </div>
           <div class="row">
             <h3 data-i18n="s4_t">Varış ve yerleşim</h3>
             <p data-i18n="s4_d">İspanya’daki ilk haftaların resmî işlemleri: hepsi randevulu, hepsi İspanyolca.</p>
             <p class="incl" data-i18n="s4_i">Empadronamiento, dijital sertifika, NIE / TIE randevusu</p>
+            <a class="row-link" data-svc="s4_t" href="https://wa.me/34666104496" target="_blank" rel="noopener"><span data-i18n="row_cta">Bu yol için yazın</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
@@ -119,6 +124,7 @@
           <h2 data-i18n="proc_h2">Süreç nasıl işliyor</h2>
           <p data-i18n="proc_p">Kimin neyi yapacağı baştan belli. Vize başvurusunu yasa gereği siz şahsen yaparsınız; dosyanın eksiksiz olması bizim işimiz.</p>
         </div>
+        <div class="steps-bar" aria-hidden="true"><span></span></div>
         <table class="steps">
           <thead>
             <tr><th scope="col" data-i18n="th_step">Adım</th><th scope="col" data-i18n="th_us">Biz</th><th scope="col" data-i18n="th_you">Siz</th></tr>
@@ -181,6 +187,7 @@
             <div><dt data-i18n="c1">Öğrenciler</dt><dd><a href="mailto:info@dogen.es">info@dogen.es</a></dd></div>
             <div><dt data-i18n="c2">Okullar ve kurumlar</dt><dd><a href="mailto:firat@dogen.es">firat@dogen.es</a></dd></div>
             <div><dt data-i18n="c4">Ofis</dt><dd>Sevilla, España</dd></div>
+            <div class="clock"><dt data-i18n="c5">Sevilla’da saat</dt><dd><time id="sev-time">—</time> <span id="sev-diff" class="diff"></span></dd></div>
           </dl>
         </div>
       </div>
