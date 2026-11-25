@@ -19,9 +19,16 @@ Logo (`logo.svg`, kaligrafik "dogen") **değişmez**. Her zaman tek renk (`--tin
 - Üst etiket (eyebrow): Inter 600, büyük harf, +0.12em, solunda albero çizgi
 
 ## Form dili
-- **Kemer** (Sevilla avlu kemeri): görsel çerçeveler ve ikon zeminleri üstten tam yuvarlak.
-- **Azulejo deseni**: kobalt zemin, kireç çizgi, albero göbek — yalnız büyük görsel alanlarda.
-- Butonlar hap (pill) formunda; WhatsApp yeşili `#1F7A4D` yalnız WhatsApp butonunda.
+- **Kemer** (Sevilla avlu kemeri): yalnız girişteki azulejo görselinde. Başka yerde tekrar edilmez.
+- **Azulejo deseni**: kobalt zemin, kireç çizgi, albero göbek. Sayfada tek bir yerde.
+- Düzen editoryal: başlık solda, metin sağda, ince çizgilerle ayrılmış satırlar. Kart ızgarası, ikon kutusu, gölge yok.
+- Buton köşesi 4px; ikincil eylemler altı çizili metin link. Sayfada tek dolu buton (WhatsApp).
+
+## Anti-AI-slop kuralları
+- Bölüm başına "üst etiket" (eyebrow) yok; başlık düz ve açıklayıcı ("Hizmetler", "Süreç nasıl işliyor").
+- Slogan başlık ("Dört yol, tek bir plan.") ve başlıkta renkli italik vurgu kelime yok.
+- 01/02/03 numaralı ilke listeleri, check-ikonlu madde kartları, kayarak belirme animasyonu yok.
+- Genel vaat yerine somut bilgi: kim ne yapar tablosu, gerçek kurum adları (UNEDasiss, DUA, NIE/TIE).
 
 ## Ses
 Sakin, net, söz vermeyen. "Garanti", "%100" yok; vize kararı her zaman İspanyol makamlarındadır.
