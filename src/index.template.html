@@ -8,29 +8,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/ui.css" />
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
   <div class="d-bar" aria-hidden="true"></div>
   <div class="d-ind" aria-hidden="true"><b>01</b><span>hizmetler</span><i></i></div>
 
-  <header class="site-header">
-    <div class="wrap header-row">
-      <a href="#top" class="logo" aria-label="dogen.es"><!--LOGO--><span class="tld">.es</span></a>
-      <nav class="nav" aria-label="Ana menü">
-        <a href="#hizmetler" data-i18n="nav_services">Hizmetler</a>
-        <a href="#surec" data-i18n="nav_process">Süreç</a>
-        <a href="#hakkimizda" data-i18n="nav_about">Hakkımızda</a>
-        <a href="#kurumlar" data-i18n="nav_partners">Kurumlar</a>
-        <a href="/blog/" data-i18n="nav_blog">Blog</a>
-        <a href="#iletisim" data-i18n="nav_contact">İletişim</a>
-      </nav>
-      <div class="lang" role="group" aria-label="Dil / Idioma">
-        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
-        <button type="button" data-lang="es" aria-pressed="false">ES</button>
-      </div>
-    </div>
-  </header>
+  <!--HEADER-->
+  <!--MENU-->
 
   <main class="shell" id="main">
     <!-- 00 · GİRİŞ -->
@@ -155,6 +141,7 @@
             <a class="row-link" data-svc="s4_t" href="https://wa.me/34666104496" target="_blank" rel="noopener"><span data-i18n="row_cta">Bu yol için yazın</span> <span aria-hidden="true">→</span></a>
           </article>
         </div>
+        <!--MORE:services-->
       </div>
     </section>
 
@@ -208,6 +195,7 @@
             <svg class="p-glyph" viewBox="0 0 120 56" aria-hidden="true"><path class="g-bg" d="M12 44 H108"/><path class="g-main" pathLength="1" d="M16 44 H46 V28 H76 V14 H106"/><path class="g-mark" d="M102 10 h8 v8 h-8z"/></svg>
           </div>
         </div>
+        <!--MORE:process-->
       </div>
     </section>
 
@@ -221,31 +209,34 @@
             <h2 class="clip-h" data-i18n="ab_h2">Hakkımızda</h2>
           </div>
           <div class="prose">
-            <p data-i18n="ab_p1">dogen.es, Fırat Daşdöğen’in Sevilla’da kurduğu bir eğitim ve yerleşim danışmanlığı. Türkiye’den İspanya’ya okumaya gelmek isteyenlerle birebir çalışıyoruz; hazır paket satmıyor, her dosyaya kendi koşullarıyla bakıyoruz.</p>
+            <p data-i18n="ab_p1">dogen, Sevilla merkezli bağımsız bir eğitim ve yerleşim danışmanlığı. Türkiye’den İspanya’ya okumaya gelmek isteyenlerle birebir çalışıyoruz; hazır paket satmıyor, her dosyaya kendi koşullarıyla bakıyoruz.</p>
             <p data-i18n="ab_p2">İspanya’da her şey randevu, belge ve takvimle ilerliyor. Bir eksik evrak ya da kaçırılan bir tarih aylarca gecikme demek. Bu yüzden işimizin büyük kısmı sessiz ve titiz: doğru belge, doğru sırada, zamanında.</p>
-            <p class="aside" data-i18n="ab_name">İsim nereden geliyor? Japoncada “dō” yol demek; kurucumuzun soyadıyla da buluşuyor.</p>
+            <p class="aside" data-i18n="ab_name">İsim nereden geliyor? Japoncada “dō” yol demek. dogen de tam olarak bunu yapıyor: yolu baştan doğru çizmek.</p>
           </div>
         </div>
         <div class="about-pillars reveal" style="--d:0.1s">
-          <div><b data-i18n="ab_k1_b">Sevilla merkezli ofis</b><span data-i18n="ab_k1_s">Uzaktan çağrı merkezi değil, Endülüs’te yerinde takip</span></div>
+          <div><b data-i18n="ab_k1_b">Sevilla merkezli</b><span data-i18n="ab_k1_s">Uzaktan çağrı merkezi değil, Endülüs’te yerinde takip</span></div>
           <div><b data-i18n="ab_k2_b">Doğru evrak sırası</b><span data-i18n="ab_k2_s">Apostil, MAEC yeminli tercüme ve resmî harç kodları</span></div>
           <div><b data-i18n="ab_k3_b">Gerçekçi takvim</b><span data-i18n="ab_k3_s">Extranjería ve Junta de Andalucía pencerelerine uyumlu plan</span></div>
         </div>
+        <!--MORE:about-->
       </div>
     </section>
 
-    <!-- 04 · KURUMLAR VE SSS -->
+<!--EXPERIENCES-->
+
+    <!-- 05 · KURUMLAR VE SSS -->
     <section class="d-card" id="kurumlar">
-      <span class="d-ghost" aria-hidden="true">04</span>
+      <span class="d-ghost" aria-hidden="true">05</span>
       <div class="wrap">
         <div class="partner-band reveal">
           <div>
-            <span class="sec-tag" data-i18n="pa_tag">04 — İş birliği ve sorular</span>
+            <span class="sec-tag" data-i18n="pa_tag">05 — İş birliği ve sorular</span>
             <h2 class="clip-h" data-i18n="pa_h2">Okullar ve kurumlar için</h2>
           </div>
           <div>
             <p data-i18n="pa_p">İspanya’daki dil akademileri ve eğitim kurumlarıyla yazılı ve resmî faturalı iş birliği yapıyoruz. Adayları Türkçe olarak ön değerlendirmeden geçiriyor, başvuru dosyalarını eksiksiz hazırlayıp takip ediyoruz.</p>
-            <p><a class="text-link" href="mailto:firat@dogen.es">firat@dogen.es →</a></p>
+            <p><a class="text-link" href="mailto:info@dogen.es">info@dogen.es →</a></p>
             <div class="partners">
               <span class="partners-h" data-i18n="pa_list_h">Anlaşmalı kurumlar</span>
               <ul class="partners-list">
@@ -261,38 +252,35 @@
             <details><summary data-i18n="q1">İspanyolcam yok, yine de başlayabilir miyim?</summary><p data-i18n="a1">Evet. Rotaların çoğu bir dil okulu dönemiyle başlar; seviyenize ve hedefinize göre okul ve program öneririz.</p></details>
             <details><summary data-i18n="q2">Vize başvurusunu siz mi yapıyorsunuz?</summary><p data-i18n="a2">Hayır. Başvuruyu yasa gereği siz şahsen yaparsınız. Biz dosyanın eksiksiz ve doğru hazırlanmasını, randevu ve takvim planlamasını üstleniriz. Nihai karar yetkili İspanyol makamlarına aittir.</p></details>
             <details><summary data-i18n="q3">Ücret nasıl belirleniyor?</summary><p data-i18n="a3">Seçtiğiniz rotaya ve hizmetin kapsamına göre. Ön görüşmeden sonra yazılı olarak paylaşırız.</p></details>
-            <details><summary data-i18n="q4">Türkiye’deyken görüşebilir miyiz?</summary><p data-i18n="a4">Elbette. Ön görüşmeyi WhatsApp’tan ya da görüntülü yapıyoruz; Sevilla’ya geldiğinizde ofiste de buluşabiliriz.</p></details>
+            <details><summary data-i18n="q4">Türkiye’deyken görüşebilir miyiz?</summary><p data-i18n="a4">Elbette. Ön görüşmeyi WhatsApp’tan ya da görüntülü yapıyoruz; Sevilla’ya geldiğinizde yüz yüze de buluşabiliriz.</p></details>
           </div>
+          <!--MORE:faq-->
         </div>
 
 <!--BLOG_LATEST-->
       </div>
     </section>
 
-    <!-- 05 · İLETİŞİM & ALT BİLGİ -->
+    <!-- 06 · İLETİŞİM & ALT BİLGİ -->
     <section class="d-card d-dark" id="iletisim">
       <div class="wrap">
         <div class="contact-grid reveal">
           <div>
-            <span class="sec-tag" data-i18n="ct_tag">05 — Doğrudan iletişim</span>
+            <span class="sec-tag" data-i18n="ct_tag">06 — Doğrudan iletişim</span>
             <h2 class="contact-cta-title clip-h" data-i18n="ct_h2">Hedefinizi yazın, rotayı birlikte çizelim.</h2>
             <p class="contact-lead" data-i18n="ct_p">Hedefinizi ve takviminizi kısaca yazın, Sevilla’dan size dönelim. Türkçe ya da İspanyolca yazabilirsiniz.</p>
             <a class="btn btn-light" href="https://wa.me/34666104496" target="_blank" rel="noopener"><span data-i18n="cta_wa">WhatsApp’tan yazın</span> <span class="arr" aria-hidden="true">→</span></a>
           </div>
           <dl class="contact-list">
             <div><dt data-i18n="c3">Telefon ve WhatsApp</dt><dd><a href="https://wa.me/34666104496" target="_blank" rel="noopener">+34 666 104 496</a></dd></div>
-            <div><dt data-i18n="c1">Öğrenciler</dt><dd><a href="mailto:info@dogen.es">info@dogen.es</a></dd></div>
-            <div><dt data-i18n="c2">Okullar ve kurumlar</dt><dd><a href="mailto:firat@dogen.es">firat@dogen.es</a></dd></div>
-            <div><dt data-i18n="c4">Ofis</dt><dd>Sevilla, España</dd></div>
+            <div><dt data-i18n="c1">E-posta</dt><dd><a href="mailto:info@dogen.es">info@dogen.es</a></dd></div>
+            <div><dt data-i18n="c4">Konum</dt><dd>Sevilla, España</dd></div>
             <div class="clock"><dt data-i18n="c5">Sevilla’da saat</dt><dd><time id="sev-time">—</time> <span id="sev-diff" class="diff"></span></dd></div>
           </dl>
         </div>
 
-        <footer class="footer-row">
-          <a href="#top" class="logo" aria-label="dogen.es"><!--LOGO--><span class="tld">.es</span></a>
-          <p class="legal"><span data-i18n="legal">dogen.es bağımsız bir eğitim ve yerleşim danışmanlığıdır. Vize ve oturum başvurularını aday şahsen yapar; nihai karar yetkili İspanyol makamlarına aittir.</span> © <span id="yr">2026</span> Fırat Daşdöğen, Sevilla.</p>
-          <nav class="foot-links" aria-label="Alt menü"><a href="/blog/" data-i18n="ft_blog">Blog · Rehber yazıları</a><a href="/<!--ALT_PATH-->" hreflang="<!--ALT_LANG-->"><!--ALT_LABEL--></a></nav>
-        </footer>
+        <!--MORE:contact-->
+        <!--FOOTER-->
       </div>
     </section>
   </main>
@@ -300,5 +288,6 @@
   <a class="m-cta" href="https://wa.me/34666104496" target="_blank" rel="noopener" tabindex="-1"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.7 2.6 4.1 3.6 1.5.7 2.1.7 2.9.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3Z"/></svg><span data-i18n="cta_wa">WhatsApp’tan yazın</span></a>
   <script src="/lenis.min.js" defer></script>
   <script src="/app.js" defer></script>
+  <script src="/ui.js" defer></script>
 </body>
 </html>

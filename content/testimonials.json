@@ -1,0 +1,5 @@
+{
+  "_not": "Yalnızca yazılı izni alınmış gerçek öğrenci deneyimleri. consent: true olmayanlar yayımlanmaz.",
+  "_ornek": {"name": "Ad S.", "route": "Dil okulu → FP", "year": 2026, "quote_tr": "…", "quote_es": "…", "consent": false},
+  "items": []
+}

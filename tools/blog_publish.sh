@@ -22,7 +22,7 @@ fi
 TODAY="$(date +%Y-%m-%d)"
 /usr/bin/sed -i '' -e '/^draft: true$/d' -e "s/^date: .*/date: $TODAY/" -e "s/^updated: .*/updated: $TODAY/" "$F"
 /usr/bin/python3 src/build.py
-git add -A content blog sitemap.xml index.html es 404.html robots.txt
+git add -A content blog sitemap.xml index.html es 404.html robots.txt hizmetler surec hakkimizda deneyimler iletisim yasal
 git -c user.name=daak -c user.email=70284321+benfirad@users.noreply.github.com \
   commit -q -m "blog: $SLUG
 

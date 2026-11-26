@@ -1,9 +1,9 @@
-/* dogen.es — v3.1 TR/ES + Lenis & Katmanlı Hareket Motoru */
+/* dogen — v3.2 TR/ES + Lenis & Katmanlı Hareket Motoru */
 (function () {
   "use strict";
 
   var ES = {
-    _title: "dogen.es — Consultoría educativa y de relocalización en Sevilla",
+    _title: "Estudiar en España desde Turquía · Consultoría en Sevilla | dogen",
     skip: "Saltar al contenido",
     nav_services: "Servicios", nav_process: "Proceso", nav_about: "Quiénes somos", nav_partners: "Centros", nav_contact: "Contacto", nav_blog: "Blog",
     ft_blog: "Blog · Guías (en turco)", bl_tag: "Guías", bl_h: "Guías para estudiar en España", bl_all: "Todas las guías →",
@@ -38,13 +38,13 @@
     r5: "Primeros 30 días", r5_us: "Te acompañamos en el empadronamiento, el certificado digital y el NIE/TIE.", r5_you: "Llegas a Sevilla.",
     ab_tag: "03 — En Sevilla",
     ab_h2: "Quiénes somos",
-    ab_p1: "dogen.es es una consultoría educativa y de relocalización fundada en Sevilla por Fırat Daşdöğen. Trabajamos de forma individual con personas de Turquía que quieren venir a estudiar a España; no vendemos paquetes, miramos cada expediente con sus propias circunstancias.",
+    ab_p1: "dogen es una consultoría educativa y de relocalización independiente con sede en Sevilla. Trabajamos de forma individual con personas de Turquía que quieren venir a estudiar a España; no vendemos paquetes, miramos cada expediente con sus propias circunstancias.",
     ab_p2: "En España todo avanza con citas, documentos y plazos. Un papel que falta o una fecha perdida pueden suponer meses de retraso. Por eso gran parte de nuestro trabajo es discreto y minucioso: el documento correcto, en el orden correcto, a tiempo.",
-    ab_name: "¿De dónde viene el nombre? En japonés «dō» significa camino, y coincide con el apellido de nuestro fundador.",
-    ab_k1_b: "Oficina en Sevilla", ab_k1_s: "Seguimiento presencial en Andalucía, no a distancia",
+    ab_name: "¿De dónde viene el nombre? En japonés «dō» significa camino. Eso es exactamente lo que hace dogen: trazar bien el camino desde el principio.",
+    ab_k1_b: "Con sede en Sevilla", ab_k1_s: "Seguimiento presencial en Andalucía, no a distancia",
     ab_k2_b: "Orden documental", ab_k2_s: "Apostilla, traducción jurada MAEC y tasas oficiales",
     ab_k3_b: "Plazos reales", ab_k3_s: "Calendario alineado con Extranjería y Junta de Andalucía",
-    pa_tag: "04 — Colaboración y dudas",
+    pa_tag: "05 — Colaboración y dudas",
     pa_h2: "Para escuelas y centros",
     pa_p: "Colaboramos por escrito y con facturación oficial con academias de idiomas y centros educativos en España. Hacemos una evaluación previa de los candidatos en turco y preparamos y seguimos expedientes completos.",
     pa_list_h: "Centros colaboradores",
@@ -53,19 +53,19 @@
     q1: "No hablo español, ¿puedo empezar igualmente?", a1: "Sí. La mayoría de las rutas empiezan con un periodo en una escuela de español; te recomendamos centro y programa según tu nivel y tu objetivo.",
     q2: "¿Presentáis vosotros la solicitud de visado?", a2: "No. La presentas tú personalmente, como exige la ley. Nosotros nos encargamos de que el expediente esté completo y correcto, y de planificar citas y plazos. La decisión final corresponde a las autoridades españolas.",
     q3: "¿Cómo se determina el precio?", a3: "Según la ruta y el alcance del servicio. Te lo enviamos por escrito después de la primera consulta.",
-    q4: "¿Podemos hablar mientras sigo en Turquía?", a4: "Claro. La primera consulta la hacemos por WhatsApp o videollamada; cuando llegues a Sevilla también podemos vernos en la oficina.",
-    ct_tag: "05 — Contacto directo",
+    q4: "¿Podemos hablar mientras sigo en Turquía?", a4: "Claro. La primera consulta la hacemos por WhatsApp o videollamada; cuando llegues a Sevilla también podemos vernos en persona.",
+    ct_tag: "06 — Contacto directo",
     ct_h2: "Cuéntanos tu objetivo y trazamos la ruta.",
     ct_p: "Escríbenos brevemente tu meta y tu calendario y te respondemos desde Sevilla. Puedes escribir en turco o en español.",
-    c1: "Estudiantes", c2: "Escuelas y centros", c3: "Teléfono y WhatsApp", c4: "Oficina", c5: "Hora en Sevilla",
+    c1: "Correo", c3: "Teléfono y WhatsApp", c4: "Ubicación", c5: "Hora en Sevilla",
     row_cta: "Escríbenos sobre esta ruta",
-    legal: "dogen.es es una consultoría educativa y de relocalización independiente. Las solicitudes de visado y residencia las presenta personalmente el interesado; su resolución corresponde a las autoridades españolas.",
-    ind_1: "servicios", ind_2: "proceso", ind_3: "quiénes somos", ind_4: "centros y dudas"
+    legal: "dogen es una consultoría educativa y de relocalización independiente. Las solicitudes de visado y residencia las presenta personalmente el interesado; su resolución corresponde a las autoridades españolas.",
+    ind_1: "servicios", ind_2: "proceso", ind_3: "quiénes somos", ind_4: "experiencias", ind_5: "centros y dudas"
   };
 
   var TR = {
     _title: document.title,
-    ind_1: "hizmetler", ind_2: "süreç", ind_3: "hakkımızda", ind_4: "kurumlar ve sss"
+    ind_1: "hizmetler", ind_2: "süreç", ind_3: "hakkımızda", ind_4: "deneyimler", ind_5: "kurumlar ve sss"
   };
   var els = document.querySelectorAll("[data-i18n]");
   els.forEach(function (el) { TR[el.dataset.i18n] = el.textContent; });
@@ -218,7 +218,8 @@
     { id: "hizmetler", n: "01", k: "ind_1" },
     { id: "surec", n: "02", k: "ind_2" },
     { id: "hakkimizda", n: "03", k: "ind_3" },
-    { id: "kurumlar", n: "04", k: "ind_4" }
+    { id: "deneyimler", n: "04", k: "ind_4" },
+    { id: "kurumlar", n: "05", k: "ind_5" }
   ].map(function (o) { return { el: document.getElementById(o.id), n: o.n, k: o.k }; }).filter(function (o) { return o.el; });
   var endSec = document.getElementById("iletisim");
 

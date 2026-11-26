@@ -19,12 +19,15 @@ from urllib.parse import quote
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import mdlite  # noqa: E402
+import pages as P  # noqa: E402
+import site_ui as UI  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://dogen.es"
 WA = "https://wa.me/34666104496"
 PHONE = "+34666104496"
-AUTHOR = "Fırat Daşdöğen"
+AUTHOR = "dogen"  # marka; kişi adı yalnızca /yasal/ sayfasında (pages.LEGAL_OWNER)
+UIH = '<link rel="stylesheet" href="/ui.css" />\n  <script src="/ui.js" defer></script>'
 FONT = '<link rel="preconnect" href="https://fonts.googleapis.com" />\n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />\n  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet" />'
 AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 
@@ -100,34 +103,12 @@ def load_posts(folder="content/blog"):
     return posts
 
 
-def site_header(logo, current):
-    def a(href, label, key):
-        cur = ' aria-current="page"' if key == current else ""
-        return '<a href="%s"%s>%s</a>' % (href, cur, label)
-    return f'''<header class="b-header">
-    <div class="b-wrap b-header-row">
-      <a href="/" class="b-logo" aria-label="dogen.es ana sayfa">{logo}<span class="tld">.es</span></a>
-      <nav class="b-nav" aria-label="Ana menü">
-        {a("/#hizmetler", "Hizmetler", "svc")}
-        {a("/blog/", "Blog", "blog")}
-        {a("/#iletisim", "İletişim", "ct")}
-      </nav>
-      <a class="b-btn" href="{WA}" target="_blank" rel="noopener">WhatsApp’tan yazın</a>
-    </div>
-  </header>'''
+def site_header(logo, current, posts, lang="tr", tr_href="/", es_href="/es/"):
+    return UI.header(lang, logo, tr_href, es_href) + "\n  " + UI.flyout(lang, logo, posts, current, tr_href, es_href)
 
 
-def site_footer(logo):
-    year = dt.date.today().year
-    return f'''<footer class="b-footer">
-    <div class="b-wrap b-footer-row">
-      <a href="/" class="b-logo" aria-label="dogen.es ana sayfa">{logo}<span class="tld">.es</span></a>
-      <nav class="b-foot-links" aria-label="Alt menü">
-        <a href="/">Ana sayfa</a><a href="/blog/">Blog</a><a href="/blog/feed.xml">RSS</a><a href="/es/" hreflang="es">Español</a><a href="mailto:info@dogen.es">info@dogen.es</a>
-      </nav>
-      <p class="b-legal">dogen.es bağımsız bir eğitim ve yerleşim danışmanlığıdır. Yazılar genel bilgilendirme amaçlıdır, hukuki görüş değildir; vize ve oturum kararları yetkili İspanyol makamlarına aittir. © {year} {AUTHOR}, Sevilla.</p>
-    </div>
-  </footer>'''
+def site_footer(logo, posts, lang="tr", tr_href="/", es_href="/es/"):
+    return UI.footer(lang, logo, posts, tr_href, es_href)
 
 
 def page_head(title, desc, canonical, og_type="website", extra="", alts=None, lang="tr"):
@@ -141,7 +122,7 @@ def page_head(title, desc, canonical, og_type="website", extra="", alts=None, la
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta name="author" content="{AUTHOR}" />
   <meta name="theme-color" content="#f6f4ef" />
-  <meta property="og:site_name" content="dogen.es" />
+  <meta property="og:site_name" content="dogen" />
   <meta property="og:locale" content="{locale}" />
   <meta property="og:type" content="{og_type}" />
   <meta property="og:title" content="{e(title)}" />
@@ -150,7 +131,7 @@ def page_head(title, desc, canonical, og_type="website", extra="", alts=None, la
   <meta property="og:image" content="{SITE}/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="dogen.es — İspanya’da eğitim, Sevilla’dan birebir" />
+  <meta property="og:image:alt" content="dogen — İspanya’da eğitim, Sevilla’dan birebir" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{e(title)}" />
   <meta name="twitter:description" content="{e(desc)}" />
@@ -158,13 +139,14 @@ def page_head(title, desc, canonical, og_type="website", extra="", alts=None, la
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="alternate" type="application/rss+xml" title="dogen.es Blog" href="{SITE}/blog/feed.xml" />{extra}'''
+  <link rel="alternate" type="application/rss+xml" title="dogen Blog" href="{SITE}/blog/feed.xml" />{extra}'''
 
 
 ORG = {
     "@type": ["ProfessionalService", "EducationalOrganization"],
     "@id": SITE + "/#org",
-    "name": "dogen.es",
+    "name": "dogen",
+    "alternateName": "dogen.es",
     "url": SITE + "/",
     "logo": SITE + "/icon-512.png",
     "image": SITE + "/og.png",
@@ -173,20 +155,19 @@ ORG = {
     "address": {"@type": "PostalAddress", "addressLocality": "Sevilla", "addressRegion": "Andalucía", "addressCountry": "ES"},
     "areaServed": [{"@type": "Country", "name": "Türkiye"}, {"@type": "Country", "name": "España"}],
     "knowsLanguage": ["tr", "es", "en"],
-    "founder": {"@type": "Person", "name": AUTHOR},
     "contactPoint": [{"@type": "ContactPoint", "contactType": "customer service", "telephone": PHONE,
                       "email": "info@dogen.es", "availableLanguage": ["Turkish", "Spanish"]}],
 }
 
 HOME_META = {
     "tr": dict(
-        title="İspanya’da Eğitim ve Öğrenci Vizesi Danışmanlığı · Sevilla | dogen.es",
+        title="İspanya’da Eğitim ve Öğrenci Vizesi Danışmanlığı · Sevilla | dogen",
         desc="Sevilla’dan birebir danışmanlık: İspanyolca dil okulu, ücretsiz devlet meslek eğitimi (FP), üniversite, öğrenci vizesi dosyası ve İspanya’daki ilk 30 gün. Türkçe destek.",
         url=SITE + "/", alt_path="es/", alt_lang="es", alt_label="Español",
         knows=["İspanya öğrenci vizesi", "İspanyolca dil okulu", "Formación Profesional (FP)", "Lise diploması denkliği (homologación)", "Sevilla’da yerleşim"],
     ),
     "es": dict(
-        title="Estudiar en España desde Turquía · Consultoría en Sevilla | dogen.es",
+        title="Estudiar en España desde Turquía · Consultoría en Sevilla | dogen",
         desc="Acompañamiento personal desde Sevilla para estudiantes de Turquía: escuela de español, FP pública, universidad, visado de estudios y primeros 30 días en España.",
         url=SITE + "/es/", alt_path="", alt_lang="tr", alt_label="Türkçe",
         knows=["Visado de estudios", "Escuelas de español", "Formación Profesional", "Homologación de títulos", "Relocalización en Sevilla"],
@@ -235,7 +216,7 @@ def build_home(posts, logo):
         alts = [("tr", SITE + "/"), ("es", SITE + "/es/"), ("x-default", SITE + "/")]
         graph = {"@context": "https://schema.org", "@graph": [
             dict(ORG, knowsAbout=M["knows"]),
-            {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "dogen.es",
+            {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "dogen",
              "inLanguage": ["tr", "es"], "publisher": {"@id": SITE + "/#org"}},
             {"@type": "WebPage", "@id": M["url"] + "#webpage", "url": M["url"], "name": M["title"],
              "description": M["desc"], "inLanguage": lang, "isPartOf": {"@id": SITE + "/#website"},
@@ -243,7 +224,14 @@ def build_home(posts, logo):
             faq_ld(tpl, lang, es),
         ]}
         head = "  " + page_head(M["title"], M["desc"], M["url"], alts=alts, lang=lang) + "\n  " + jsonld(graph) + "\n"
+        tr_h, es_h = SITE + "/", SITE + "/es/"
         out = tpl.replace("<!--HEAD-->\n", head).replace("<!--LOGO-->", logo)
+        out = out.replace("<!--HEADER-->", UI.header(lang, logo, "/", "/es/", home=True))
+        out = out.replace("<!--MENU-->", UI.flyout(lang, logo, posts, "home", "/", "/es/"))
+        out = out.replace("<!--FOOTER-->", UI.footer(lang, logo, posts, "/", "/es/", home=True))
+        out = out.replace("<!--EXPERIENCES-->\n", UI.home_experiences(lang))
+        for k in ("services", "process", "about", "faq", "contact"):
+            out = out.replace("<!--MORE:%s-->" % k, UI.more_link(lang, k))
         out = out.replace("<!--BLOG_LATEST-->\n", latest_block(posts, lang))
         out = out.replace("<!--ALT_PATH-->", M["alt_path"]).replace("<!--ALT_LANG-->", M["alt_lang"]).replace("<!--ALT_LABEL-->", M["alt_label"])
         if lang == "es":
@@ -277,21 +265,21 @@ def related(posts, cur, n=3):
 
 def build_post(p, posts, logo):
     crumbs = {"@type": "BreadcrumbList", "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "dogen.es", "item": SITE + "/"},
+        {"@type": "ListItem", "position": 1, "name": "dogen", "item": SITE + "/"},
         {"@type": "ListItem", "position": 2, "name": "Blog", "item": SITE + "/blog/"},
         {"@type": "ListItem", "position": 3, "name": p["title"], "item": p["url"]}]}
     art = {"@type": "BlogPosting", "@id": p["url"] + "#article", "headline": p["title"][:110],
            "description": p["description"], "inLanguage": "tr", "url": p["url"], "mainEntityOfPage": p["url"],
            "datePublished": p["date"].isoformat(), "dateModified": p["updated"].isoformat(),
            "wordCount": p["words"], "keywords": ", ".join(p["tags"]), "image": SITE + "/og.png",
-           "author": {"@type": "Person", "name": AUTHOR, "url": SITE + "/#hakkimizda"},
+           "author": {"@id": SITE + "/#org"},
            "publisher": {"@id": SITE + "/#org"}}
     ld = jsonld({"@context": "https://schema.org", "@graph": [art, crumbs, ORG]})
     extra = (f'\n  <meta property="article:published_time" content="{p["date"].isoformat()}" />'
              f'\n  <meta property="article:modified_time" content="{p["updated"].isoformat()}" />'
              + "".join(f'\n  <meta property="article:tag" content="{e(t)}" />' for t in p["tags"])
              + "\n  " + ld)
-    head = page_head(p["title"] + " | dogen.es", p["description"], p["url"], og_type="article", extra=extra)
+    head = page_head(p["title"] + " | dogen", p["description"], p["url"], og_type="article", extra=extra)
     toc = ""
     h2 = [h for h in p["heads"] if h[0] == 2 and h[2].lower() != "kaynaklar"]
     if len(h2) >= 3:
@@ -310,12 +298,13 @@ def build_post(p, posts, logo):
   {head}
   {FONT}
   <link rel="stylesheet" href="/blog.css" />
+  {UIH}
 </head>
 <body>
   <a class="skip" href="#icerik">İçeriğe geç</a>
-  {site_header(logo, "blog")}
+  {site_header(logo, "blog", posts)}
   <main id="icerik" class="b-wrap b-article-wrap">
-    <nav class="b-crumbs" aria-label="Konum"><a href="/">dogen.es</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a></nav>
+    <nav class="b-crumbs" aria-label="Konum"><a href="/">dogen</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a></nav>
     <article class="b-article">
       <header class="b-art-head">
         <div class="b-tags">{tags}</div>
@@ -338,7 +327,7 @@ def build_post(p, posts, logo):
       <ul>{rel}</ul>
     </section>
   </main>
-  {site_footer(logo)}
+  {site_footer(logo, posts)}
 </body>
 </html>
 '''
@@ -349,15 +338,15 @@ def build_post(p, posts, logo):
 
 def build_blog_index(posts, logo):
     url = SITE + "/blog/"
-    title = "Blog · İspanya’da eğitim ve yerleşim rehberleri | dogen.es"
+    title = "Blog · İspanya’da eğitim ve yerleşim rehberleri | dogen"
     desc = "İspanya öğrenci vizesi, ücretsiz devlet meslek eğitimi (FP), lise denkliği, Sevilla’da yerleşim ve öğrenciyken çalışma üzerine güncel, kaynaklı rehber yazılar."
     ld = jsonld({"@context": "https://schema.org", "@graph": [
-        {"@type": "Blog", "@id": url + "#blog", "url": url, "name": "dogen.es Blog", "description": desc, "inLanguage": "tr",
+        {"@type": "Blog", "@id": url + "#blog", "url": url, "name": "dogen Blog", "description": desc, "inLanguage": "tr",
          "publisher": {"@id": SITE + "/#org"},
          "blogPost": [{"@type": "BlogPosting", "headline": p["title"], "url": p["url"], "datePublished": p["date"].isoformat(),
                        "dateModified": p["updated"].isoformat()} for p in posts]},
         {"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "dogen.es", "item": SITE + "/"},
+            {"@type": "ListItem", "position": 1, "name": "dogen", "item": SITE + "/"},
             {"@type": "ListItem", "position": 2, "name": "Blog", "item": url}]},
         ORG]})
     head = page_head(title, desc, url, extra="\n  " + ld)
@@ -378,10 +367,11 @@ def build_blog_index(posts, logo):
   {head}
   {FONT}
   <link rel="stylesheet" href="/blog.css" />
+  {UIH}
 </head>
 <body>
   <a class="skip" href="#icerik">İçeriğe geç</a>
-  {site_header(logo, "blog")}
+  {site_header(logo, "blog", posts)}
   <main id="icerik" class="b-wrap">
     <header class="b-hero">
       <span class="b-kicker">Blog · Rehber yazıları</span>
@@ -392,7 +382,7 @@ def build_blog_index(posts, logo):
 {chr(10).join(cards)}
     </ul>
   </main>
-  {site_footer(logo)}
+  {site_footer(logo, posts)}
 </body>
 </html>
 '''
@@ -415,7 +405,7 @@ def build_feed(posts):
     xml = f'''<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>dogen.es Blog</title>
+  <title>dogen Blog</title>
   <link>{SITE}/blog/</link>
   <atom:link href="{SITE}/blog/feed.xml" rel="self" type="application/rss+xml" />
   <description>İspanya’da eğitim ve yerleşim üzerine rehber yazılar, Sevilla’dan.</description>
@@ -429,12 +419,19 @@ def build_feed(posts):
 
 
 def build_sitemap(posts):
-    home = git_date("src/index.template.html", "app.js", "styles.css", "content/blog")
+    home = git_date("src/index.template.html", "app.js", "styles.css", "ui.css", "src/site_ui.py", "content/blog")
     blog_last = max([p["updated"] for p in posts], default=dt.date.today()).isoformat()
     alt = ('\n    <xhtml:link rel="alternate" hreflang="tr" href="%s/" />'
            '\n    <xhtml:link rel="alternate" hreflang="es" href="%s/es/" />'
            '\n    <xhtml:link rel="alternate" hreflang="x-default" href="%s/" />') % (SITE, SITE, SITE)
     urls = [(SITE + "/", home, alt), (SITE + "/es/", home, alt), (SITE + "/blog/", blog_last, "")]
+    pg_date = git_date("src/pages.py", "src/site_ui.py", "ui.css", "content/testimonials.json")
+    for key in ("services", "process", "about", "experiences", "contact", "legal"):
+        tr_u, es_u = SITE + P.path(key, "tr"), SITE + P.path(key, "es")
+        a = ('\n    <xhtml:link rel="alternate" hreflang="tr" href="%s" />'
+             '\n    <xhtml:link rel="alternate" hreflang="es" href="%s" />'
+             '\n    <xhtml:link rel="alternate" hreflang="x-default" href="%s" />') % (tr_u, es_u, tr_u)
+        urls += [(tr_u, pg_date, a), (es_u, pg_date, a)]
     urls += [(p["url"], p["updated"].isoformat(), "") for p in posts]
     body = "\n".join(f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{d}</lastmod>{a}\n  </url>" for u, d, a in urls)
     (ROOT / "sitemap.xml").write_text(
@@ -443,30 +440,86 @@ def build_sitemap(posts):
     (ROOT / "robots.txt").write_text("User-agent: *\nDisallow: /r/\nDisallow: /src/\nDisallow: /content/\nDisallow: /tools/\n\nSitemap: %s/sitemap.xml\n" % SITE)
 
 
-def build_404(logo):
+def build_404(logo, posts):
     page = f'''<!doctype html>
 <html lang="tr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sayfa bulunamadı | dogen.es</title>
+  <title>Sayfa bulunamadı | dogen</title>
   <meta name="robots" content="noindex" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   {FONT}
   <link rel="stylesheet" href="/blog.css" />
+  {UIH}
 </head>
 <body>
-  {site_header(logo, "")}
+  {site_header(logo, "", posts)}
   <main class="b-wrap b-hero b-404">
     <span class="b-kicker">404</span>
     <h1>Aradığınız sayfa burada değil.</h1>
     <p>Bağlantı değişmiş olabilir. <a href="/">Ana sayfaya</a> dönebilir ya da <a href="/blog/">rehber yazılarına</a> göz atabilirsiniz.</p>
   </main>
-  {site_footer(logo)}
+  {site_footer(logo, posts)}
 </body>
 </html>
 '''
     (ROOT / "404.html").write_text(page)
+
+
+def build_pages(posts, logo):
+    for key, body in UI.BODIES.items():
+        for lang in ("tr", "es"):
+            pg = P.PAGES[key][lang]
+            U = P.UI[lang]
+            tr_p, es_p = P.path(key, "tr"), P.path(key, "es")
+            url = SITE + P.path(key, lang)
+            alts = [("tr", SITE + tr_p), ("es", SITE + es_p), ("x-default", SITE + tr_p)]
+            home_url = SITE + P.path("home", lang)
+            graph = [
+                {"@type": UI.PAGE_TYPES.get(key, "WebPage"), "@id": url + "#webpage", "url": url, "name": pg["title"],
+                 "description": pg["desc"], "inLanguage": lang, "isPartOf": {"@id": SITE + "/#website"},
+                 "about": {"@id": SITE + "/#org"}, "breadcrumb": {"@id": url + "#crumbs"}},
+                {"@type": "BreadcrumbList", "@id": url + "#crumbs", "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "dogen", "item": home_url},
+                    {"@type": "ListItem", "position": 2, "name": U[key], "item": url}]},
+                ORG,
+            ]
+            if key == "services":
+                graph += [{"@type": "Service", "@id": url + "#" + s["id"], "name": s["t"], "description": s["d"],
+                           "serviceType": s["t"], "provider": {"@id": SITE + "/#org"}, "url": url + "#" + s["id"],
+                           "areaServed": [{"@type": "Country", "name": "España"}, {"@type": "Country", "name": "Türkiye"}]}
+                          for s in P.SERVICES[lang]]
+                graph.append({"@type": "FAQPage", "@id": url + "#sss", "inLanguage": lang, "mainEntity": [
+                    {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in P.FAQ[lang]]})
+            ld = jsonld({"@context": "https://schema.org", "@graph": graph})
+            head = page_head(pg["title"], pg["desc"], url, alts=alts, lang=lang, extra="\n  " + ld)
+            cta = "" if key in ("contact", "legal") else "\n    " + UI.cta(lang, pg)
+            page = f'''<!doctype html>
+<html lang="{lang}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  {head}
+  {FONT}
+  <link rel="stylesheet" href="/blog.css" />
+  {UIH}
+</head>
+<body class="pg-body pg-{key}">
+  <a class="skip" href="#icerik">{U["skip"]}</a>
+  {UI.header(lang, logo, tr_p, es_p)}
+  {UI.flyout(lang, logo, posts, key, tr_p, es_p)}
+  <main id="icerik" class="ui-wrap pg">
+    {body(lang, pg)}{cta}
+  </main>
+  {UI.footer(lang, logo, posts, tr_p, es_p)}
+</body>
+</html>
+'''
+            d = ROOT / P.path(key, lang).strip("/")
+            d.mkdir(parents=True, exist_ok=True)
+            (d / "index.html").write_text(page)
+    print("  iç sayfalar: %d × 2 dil" % len(UI.BODIES))
 
 
 def main():
@@ -488,7 +541,8 @@ def main():
             print("  kaldırıldı: blog/%s" % d.name)
     build_feed(posts)
     build_sitemap(posts)
-    build_404(logo)
+    build_pages(posts, logo)
+    build_404(logo, posts)
     print("  blog: %d yazı · sitemap.xml · robots.txt · feed.xml · 404.html" % len(posts))
 
 
