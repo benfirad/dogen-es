@@ -426,6 +426,28 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   requestAnimationFrame(frame);
 
+  /* ---- Mobil yüzen WhatsApp butonu: hero geçilince görünür, iletişimde gizlenir ---- */
+  var mcta = document.querySelector(".m-cta");
+  var heroEl = document.querySelector(".hero");
+  var contactEl = document.getElementById("iletisim");
+  if (mcta && heroEl && contactEl) {
+    var mctaOn = false;
+    var mctaSync = function () {
+      var h = heroEl.getBoundingClientRect();
+      var c = contactEl.getBoundingClientRect();
+      var on = h.bottom < 0 && c.top > window.innerHeight * 0.6;
+      if (on === mctaOn) return;
+      mctaOn = on;
+      mcta.classList.toggle("is-on", on);
+      mcta.tabIndex = on ? 0 : -1;
+      if (on) mcta.removeAttribute("aria-hidden"); else mcta.setAttribute("aria-hidden", "true");
+    };
+    mcta.setAttribute("aria-hidden", "true");
+    window.addEventListener("scroll", mctaSync, { passive: true });
+    window.addEventListener("resize", mctaSync);
+    mctaSync();
+  }
+
   var yr = document.getElementById("yr");
   if (yr) yr.textContent = String(new Date().getFullYear());
 })();

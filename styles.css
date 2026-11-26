@@ -511,3 +511,29 @@ main.shell { transition: opacity 0.18s var(--ease-out), filter 0.18s var(--ease-
   .arch { aspect-ratio: 5 / 3.4; border-radius: 999px 999px 6px 6px / 280px 280px 6px 6px; }
   .d-spec { width: 96px; top: 20px; right: 18px; }
 }
+
+/* ---- UX cilası: okunabilirlik, dokunma alanı, mobil eylem ---- */
+h1, h2, h3, h4 { text-wrap: balance; }
+p, li, dd, summary { text-wrap: pretty; }
+.m-cta { display: none; }
+@media (max-width: 900px) {
+  .m-cta {
+    position: fixed; left: 50%; bottom: max(16px, env(safe-area-inset-bottom)); z-index: 120;
+    display: inline-flex; align-items: center; gap: 9px; padding: 0 22px; min-height: 50px;
+    background: var(--azulejo); color: #fff; border-radius: 999px; text-decoration: none;
+    font-weight: 600; font-size: 15.5px; white-space: nowrap;
+    box-shadow: 0 12px 30px rgba(15, 32, 54, 0.32), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+    transform: translate(-50%, 140%); opacity: 0; pointer-events: none;
+    transition: transform 0.45s var(--ease), opacity 0.3s ease;
+  }
+  .m-cta svg { width: 19px; height: 19px; flex: none; }
+  .m-cta.is-on { transform: translate(-50%, 0); opacity: 1; pointer-events: auto; }
+  .m-cta:active { transform: translate(-50%, 0) scale(0.97); }
+}
+@media (pointer: coarse) {
+  .lang button { min-height: 38px; min-width: 42px; }
+  .text-link, .row-link { padding-block: 9px; margin-block: -9px; }
+  .contact-list a { display: inline-block; padding-block: 8px; margin-block: -8px; }
+  .partners-list a { min-height: 52px; }
+}
+@media print { .m-cta { display: none !important; } }
