@@ -129,6 +129,9 @@ main.is-measuring > .s-card{position:relative!important;top:0!important}
 #sozluk{z-index:8;background:var(--cal2)}
 #kaynak{z-index:9;background:var(--tinta);color:var(--cal);border-top-color:rgba(255,255,255,.12);padding-bottom:36px}
 
+/* Odak: sıradaki bölüm yaklaşana kadar içeriği görünmez, önceki bölüm aynı anda söner */
+html.d-motion main > .s-card:not(.hero-sec) > .wrap{opacity:var(--in,1);transform:translateY(calc((1 - var(--in,1)) * 28px));will-change:opacity,transform}
+@media print{html.d-motion main > .s-card > .wrap{opacity:1!important;transform:none!important}}
 @media (min-width:1041px){
   .s-card.pin-card{position:sticky;top:58px}
   html.d-motion .s-card.pin-card::after{content:"";position:absolute;inset:0;border-radius:inherit;background:inherit;opacity:var(--cv,0);pointer-events:none;z-index:25}
@@ -1349,6 +1352,7 @@ function scrollToTarget(sel){
 const bar=$(".d-bar");
 const pinCards=[...document.querySelectorAll(".s-card.pin-card")];
 const allSecs=[...document.querySelectorAll("main > .s-card")];
+const incoming=allSecs.filter(el=>!el.classList.contains("hero-sec")).map(el=>({el,v:-1}));
 const stack=allSecs.map((el,i)=>({el,nx:allSecs[i+1]||null,v:-1})).filter(s=>s.nx && s.el.classList.contains("pin-card"));
 
 let vh=window.innerHeight, lastY=-1;
@@ -1389,8 +1393,15 @@ function onScroll(y){
   if(!reduce && window.innerWidth>1040){
     stack.forEach(s=>{
       const t=s.nx.getBoundingClientRect().top;
-      const v=Math.round(ease3(clamp((vh*0.68-t)/(vh*0.48)))*100)/100;
+      const v=Math.round(ease3(clamp((vh*0.8-t)/(vh*0.42)))*100)/100;
       if(v!==s.v){s.v=v;s.el.style.setProperty("--cv",v);}
+    });
+  }
+  if(!reduce){
+    incoming.forEach(s=>{
+      const t=s.el.getBoundingClientRect().top;
+      const v=Math.round(ease3(clamp((vh*0.82-t)/(vh*0.36)))*100)/100;
+      if(v!==s.v){s.v=v;s.el.style.setProperty("--in",v);}
     });
   }
 }
