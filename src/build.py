@@ -121,7 +121,7 @@ def page_head(title, desc, canonical, og_type="website", extra="", alts=None, la
   <link rel="canonical" href="{canonical}" />{alt}
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta name="author" content="{AUTHOR}" />
-  <meta name="theme-color" content="#f6f4ef" />
+  <meta name="theme-color" content="#ffffff" />
   <meta property="og:site_name" content="dogen" />
   <meta property="og:locale" content="{locale}" />
   <meta property="og:type" content="{og_type}" />

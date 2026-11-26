@@ -2,17 +2,18 @@
 
 Logo (`logo.svg`, kaligrafik "dogen") **değişmez**. Her zaman tek renk (`--tinta` `#16181D` veya koyu/kobalt yüzeyde `--cal` `#F6F4EF`), yanında küçük italik `.es`.
 
-## Renk
+## Renk (v4, 2026-11-26 — "Mürekkep & Çini")
+Sarı/krem/hardal tamamen kaldırıldı. Zemin saf beyaz, her şey tek koyu mürekkep; tek renk çinidir.
 | Ad | Hex | Kullanım |
 |---|---|---|
-| Cal (kireç badana) | `#F6F4EF` | Ana zemin |
-| Cal-2 (sıcak taş) | `#EEEAE1` | İkincil kart yüzeyi |
-| Papel | `#FFFFFF` | Öne çıkan temiz kart yüzeyi |
-| Tinta | `#16181D` | Ana metin, logo, koyu kapanış kartı |
-| Pizarra | `#555B64` | İkincil metin |
-| Azulejo (kobalt) | `#1F4A7A` | Ana vurgu, vurgu sahne kartı, perde hover, butonlar, linkler |
-| Albero (avlu toprağı) | `#C58B2B` | Çizgi/rota noktası vurgusu · metinde `#8A5A12` · koyu zeminde `#E2B764` |
-| Línea | `#D9D3C7` | İnce mimari ayırıcı çizgiler |
+| Cal (zemin) | `#FFFFFF` | Ana zemin |
+| Cal-2 | `#F2F3F5` | İkincil kart yüzeyi |
+| Tinta (mürekkep) | `#141B2D` | Metin, logo, butonlar, koyu bölümler (`--azulejo` da bu renge eşit) |
+| Pizarra | `#5D6372` | İkincil metin, etiketler |
+| Línea | `#E3E5EA` | İnce ayırıcılar |
+| Çini (`--cini`) | `#1F4A7A` | **Yalnızca** çini deseni, favicon, blog öne çıkan kartı — markanın sembolü |
+
+Kural: renkli etiket, hardal vurgu, sıcak krem yok. Renk görmek isteyen göz çiniye gider.
 
 ## Tipografi (tam Türkçe/İspanyolca `latin-ext`)
 - Tek aile: **Instrument Sans** (`400..700`, normal ve italik — `ğ, ş, ı, İ, ö, ü, ç` tam destekli)

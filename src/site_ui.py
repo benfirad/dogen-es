@@ -24,12 +24,12 @@ def other(lang):
 
 # ------------------------------------------------------------------ küçük parçalar
 def thumb(i):
-    bg = ["#1f4a7a", "#16181d", "#c58b2b"][i % 3]
-    ring = "#e2b764" if i % 3 != 2 else "#16181d"
+    bg = ["#1f4a7a", "#141b2d", "#2b5f96"][i % 3]
+    ring = "#ffffff" if i % 3 != 2 else "#141b2d"
     return (f'<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" fill="{bg}"/>'
-            f'<g transform="translate(32 32)" fill="none" stroke="#f6f4ef" stroke-width="1.6">'
+            f'<g transform="translate(32 32)" fill="none" stroke="#ffffff" stroke-width="1.6">'
             f'<rect x="-15" y="-15" width="30" height="30"/><rect x="-15" y="-15" width="30" height="30" transform="rotate(45)"/>'
-            f'<circle r="6" stroke="{ring}"/></g><g fill="#f6f4ef" fill-opacity=".85">'
+            f'<circle r="6" stroke="{ring}"/></g><g fill="#ffffff" fill-opacity=".85">'
             f'<path d="M0 0h8L0 8Z"/><path d="M64 0h-8l8 8Z"/><path d="M0 64h8L0 56Z"/><path d="M64 64h-8l8-8Z"/></g></svg>')
 
 

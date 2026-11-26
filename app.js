@@ -372,14 +372,14 @@
     var arch = document.getElementById("arch");
     if (!g || !arch) return;
     var S = 88, COLS = 5, ROWS = 7;
-    var corner = '<g fill="#f6f4ef" fill-opacity=".85"><path d="M0 0h11L0 11Z"/><path d="M88 0H77l11 11Z"/><path d="M0 88h11L0 77Z"/><path d="M88 88H77l11-11Z"/></g>';
-    var star = '<g class="rot"><g transform="translate(44 44)" fill="none" stroke="#f6f4ef" stroke-width="1.6">' +
+    var corner = '<g fill="#ffffff" fill-opacity=".85"><path d="M0 0h11L0 11Z"/><path d="M88 0H77l11 11Z"/><path d="M0 88h11L0 77Z"/><path d="M88 88H77l11-11Z"/></g>';
+    var star = '<g class="rot"><g transform="translate(44 44)" fill="none" stroke="#ffffff" stroke-width="1.6">' +
       '<rect x="-22" y="-22" width="44" height="44"/><rect x="-22" y="-22" width="44" height="44" transform="rotate(45)"/>' +
-      '<circle r="9" stroke="#e2b764"/><circle class="dot" r="3.5" fill="#e2b764" stroke="none"/></g></g>';
+      '<circle r="9" stroke="#ffffff"/><circle class="dot" r="3.5" fill="#ffffff" stroke="none"/></g></g>';
     var list = [], html = "";
     for (var r = 0; r < ROWS; r++) for (var c = 0; c < COLS; c++) {
       html += '<g class="tile' + (reduce ? "" : " pre") + '" data-r="' + r + '" data-c="' + c + '" transform="translate(' + c * S + " " + r * S + ')">' +
-        '<rect class="hit" width="88" height="88" fill="#1f4a7a"/><path d="M.5.5h87v87H.5z" fill="none" stroke="#f6f4ef" stroke-opacity=".14"/>' + corner + star + "</g>";
+        '<rect class="hit" width="88" height="88" fill="#1f4a7a"/><path d="M.5.5h87v87H.5z" fill="none" stroke="#ffffff" stroke-opacity=".14"/>' + corner + star + "</g>";
     }
     g.innerHTML = html;
     var fb = document.getElementById("tile-fallback"); if (fb) fb.remove();

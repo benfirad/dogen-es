@@ -1,8 +1,8 @@
 /* dogen.es — Blog · "Cal & Azulejo" okuma düzeni */
 :root {
-  --cal: #f6f4ef; --cal-2: #eeeae1; --papel: #fff; --tinta: #16181d; --pizarra: #555b64;
-  --linea: #d9d3c7; --azulejo: #1f4a7a; --azulejo-d: #163759; --azulejo-soft: #e4ebf3;
-  --albero: #c58b2b; --albero-t: #8a5a12; --albero-light: #e2b764;
+  --cal: #ffffff; --cal-2: #f2f3f5; --papel: #fff; --tinta: #141b2d; --pizarra: #5d6372;
+  --linea: #e3e5ea; --azulejo: #141b2d; --azulejo-d: #0a0f1c; --azulejo-soft: #f2f3f5;
+  --albero: #141b2d; --albero-t: #5d6372; --albero-light: #ffffff; --cini: #1f4a7a;
   --f: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --gutter: clamp(18px, 4.5vw, 52px);
@@ -20,7 +20,7 @@ p, li { text-wrap: pretty; }
 .b-wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--gutter); }
 
 /* Üst bar */
-.b-header { position: sticky; top: 0; z-index: 50; background: rgba(246, 244, 239, 0.88); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--linea); }
+.b-header { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, 0.88); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--linea); }
 .b-header-row { display: flex; align-items: center; gap: 28px; height: 68px; }
 .b-logo { display: inline-flex; align-items: flex-end; gap: 3px; color: var(--tinta); text-decoration: none; }
 .b-logo svg { height: 28px; width: auto; display: block; }
@@ -46,14 +46,14 @@ p, li { text-wrap: pretty; }
 .b-card p { margin: 0; color: var(--pizarra); font-size: 15.5px; line-height: 1.6; flex: 1; }
 .b-card .b-meta { font-size: 13.5px; color: var(--pizarra); margin-top: 6px; }
 .b-card-lead { grid-column: span 2; grid-row: span 2; }
-.b-card-lead a { background: var(--azulejo); border-color: var(--azulejo); color: #fff; padding: 34px 34px 30px; }
+.b-card-lead a { background: var(--cini); border-color: var(--cini); color: #fff; padding: 34px 34px 30px; }
 .b-card-lead h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; max-width: 16em; }
 .b-card-lead .b-tag { margin-bottom: auto; }
 .b-card-lead p { flex: 0 0 auto; font-size: 17px; max-width: 34em; }
 .b-card-lead p, .b-card-lead .b-meta { color: rgba(255, 255, 255, 0.78); }
 .b-card-lead .b-tag { background: rgba(255, 255, 255, 0.14); color: var(--albero-light); }
 @media (hover: hover) {
-  .b-card a:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -22px rgba(22, 24, 29, 0.35); border-color: #c9c1b2; }
+  .b-card a:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -22px rgba(20, 27, 45, 0.35); border-color: #cfd3da; }
 }
 .b-tag { display: inline-block; align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; padding: 4px 10px; border-radius: 999px; background: var(--azulejo-soft); color: var(--azulejo); }
 
@@ -114,11 +114,11 @@ p, li { text-wrap: pretty; }
 .b-footer { background: var(--tinta); color: var(--cal); border-radius: 28px 28px 0 0; padding: 44px 0 40px; }
 .b-footer-row { display: grid; gap: 18px; }
 .b-footer .b-logo { color: var(--cal); }
-.b-footer .b-logo .tld { color: rgba(246, 244, 239, 0.6); }
+.b-footer .b-logo .tld { color: rgba(255, 255, 255, 0.6); }
 .b-foot-links { display: flex; flex-wrap: wrap; gap: 8px 22px; }
-.b-foot-links a { color: rgba(246, 244, 239, 0.82); text-decoration: none; font-size: 15px; }
+.b-foot-links a { color: rgba(255, 255, 255, 0.82); text-decoration: none; font-size: 15px; }
 .b-foot-links a:hover { color: #fff; text-decoration: underline; }
-.b-legal { font-size: 13px; color: rgba(246, 244, 239, 0.56); max-width: 640px; line-height: 1.55; margin: 0; }
+.b-legal { font-size: 13px; color: rgba(255, 255, 255, 0.56); max-width: 640px; line-height: 1.55; margin: 0; }
 .b-404 { min-height: 56vh; }
 
 @media (max-width: 900px) {
