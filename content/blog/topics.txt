@@ -1,0 +1,15 @@
+# dogen.es blog konu kuyruğu
+# Her hafta tools/blog_draft.py en üstteki açık konuyu alır, taslak üretir ve satırı "[x]" ile işaretler.
+# Biçim: [ ] Başlık fikri | odak / anahtar kelimeler
+[ ] Sevilla’da öğrenci olarak aylık yaşam maliyeti | kira, ulaşım, market, telefon; vize için geçim kanıtı (IPREM) ile karşılaştırma
+[ ] NIE, TIE ve DNI arasındaki fark nedir? | yabancı kimlik numarası, kart, kimin hangisini alacağı
+[ ] FP Grado Medio ile Grado Superior arasındaki fark | giriş şartları, süre, yükseköğretim sayılması, çalışma hakkı
+[ ] Öğrenci vizesi için sağlık sigortası şartları | kapsam, muafiyetsiz/eksiz poliçe, geri ödeme, süre
+[ ] İspanya’da öğrenci oturumunu yenileme (prórroga) | süre, belgeler, online başvuru, dijital sertifika
+[ ] Apostil ve yeminli tercüme: hangi belgeler, nerede yapılır | Türkiye’de apostil, İspanya’da traductor jurado listesi
+[ ] Sevilla’da öğrenci evi bulmak: semtler ve kira sözleşmesi | oda kiralama, depozito, padrón izni, dolandırıcılık uyarıları
+[ ] DELE ve SIELE: İspanyolca seviye belgesi hangisi, ne işe yarar | Instituto Cervantes, seviye, FP ve üniversite başvurusu
+[ ] Endülüs’te FP başvuru takvimi adım adım | Haziran başvurusu, listeler, matrícula, Eylül başlangıcı
+[ ] İspanya’da üniversiteye Türkiye’den başvuru: UNEDasiss ve PCE | akreditasyon, sınavlar, kontenjanlar
+[ ] Mezuniyetten sonra İspanya’da kalmak: iş arama ve çalışma oturumu | RD 1155/2024, süreler, başvuru penceresi
+[ ] Öğrenci vizesiyle aile: eş ve çocuklar gelebilir mi? | aile üyeleri için kalış, geçim kanıtı

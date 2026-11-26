@@ -5,8 +5,9 @@
   var ES = {
     _title: "dogen.es — Consultoría educativa y de relocalización en Sevilla",
     skip: "Saltar al contenido",
-    nav_services: "Servicios", nav_process: "Proceso", nav_about: "Quiénes somos", nav_partners: "Centros", nav_contact: "Contacto",
-    hero_h1: "Orientación desde Sevilla para quien quiere estudiar en España.",
+    nav_services: "Servicios", nav_process: "Proceso", nav_about: "Quiénes somos", nav_partners: "Centros", nav_contact: "Contacto", nav_blog: "Blog",
+    ft_blog: "Blog · Guías (en turco)", bl_tag: "Guías", bl_h: "Guías para estudiar en España", bl_all: "Todas las guías →",
+    hero_h1: "Antes de ir a España, trazamos juntos tu camino.",
     hero_lead: "Escuela de español, Formación Profesional o universidad: decidimos contigo qué camino encaja y te acompañamos desde la matrícula y el expediente de visado hasta tu primer mes en España.",
     cta_wa: "Escríbenos por WhatsApp",
     m1_b: "1 a 1 desde Sevilla", m1_s: "Sin paquetes estándar, expediente a medida",
@@ -182,17 +183,23 @@
     tick();
     curInd = null;
     measure();
-    try { localStorage.setItem("dogen-lang", next); } catch (e) {}
   }
 
+  /* Her dilin kendi adresi var (/ = TR, /es/ = ES): dil düğmesi ilgili sayfaya geçer */
+  var LANG_PATH = { tr: "/", es: "/es/" };
+  function goLang(next) {
+    try { localStorage.setItem("dogen-lang", next); } catch (e) {}
+    location.href = LANG_PATH[next] + location.hash;
+  }
   document.querySelectorAll(".lang button").forEach(function (b) {
     b.addEventListener("click", function () {
       if (b.dataset.lang === lang) return;
-      if (reduce) { setLang(b.dataset.lang); return; }
+      if (reduce) { goLang(b.dataset.lang); return; }
       root.classList.add("is-swapping");
-      setTimeout(function () { setLang(b.dataset.lang); root.classList.remove("is-swapping"); }, 170);
+      setTimeout(function () { goLang(b.dataset.lang); }, 170);
     });
   });
+  window.addEventListener("pageshow", function () { root.classList.remove("is-swapping"); });
 
   /* ---- Katmanlı Sticky Kart + Marquee + Bölüm Göstergesi Motoru ---- */
   var header = document.querySelector(".site-header");
@@ -411,14 +418,15 @@
   })();
 
   /* ---- İlk Dil & Başlatma ---- */
-  var initial = "tr";
-  try {
-    var q = new URLSearchParams(location.search).get("lang");
-    var saved = localStorage.getItem("dogen-lang");
-    if (q === "es" || q === "tr") initial = q;
-    else if (saved === "es" || saved === "tr") initial = saved;
-    else if (/^es\b/i.test(navigator.language || "")) initial = "es";
-  } catch (e) {}
+  var initial = root.lang === "es" ? "es" : "tr";
+  if (initial === "tr") {
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      var saved = localStorage.getItem("dogen-lang");
+      var wantEs = q ? q === "es" : (saved ? saved === "es" : /^es\b/i.test(navigator.language || ""));
+      if (wantEs) { location.replace("/es/" + location.hash); return; }
+    } catch (e) {}
+  }
   setLang(initial);
 
   window.addEventListener("resize", measure, { passive: true });

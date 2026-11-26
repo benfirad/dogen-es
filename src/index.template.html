@@ -3,18 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>dogen.es — İspanya’da eğitim ve yerleşim danışmanlığı, Sevilla</title>
-  <meta name="description" content="Sevilla’daki ofisimizden; İspanyolca dil okulu, devlet mesleki eğitimi (FP), üniversite başvurusu, öğrenci vizesi dosyası ve İspanya’daki ilk ay için birebir danışmanlık." />
-  <meta name="theme-color" content="#f6f4ef" />
-  <meta property="og:title" content="dogen.es — İspanya’da eğitim ve yerleşim danışmanlığı" />
-  <meta property="og:description" content="Dil okulu, FP, üniversite ve yerleşim. Sevilla’dan, birebir." />
-  <meta property="og:url" content="https://dogen.es/" />
-  <meta property="og:type" content="website" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<!--HEAD-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
@@ -29,6 +22,7 @@
         <a href="#surec" data-i18n="nav_process">Süreç</a>
         <a href="#hakkimizda" data-i18n="nav_about">Hakkımızda</a>
         <a href="#kurumlar" data-i18n="nav_partners">Kurumlar</a>
+        <a href="/blog/" data-i18n="nav_blog">Blog</a>
         <a href="#iletisim" data-i18n="nav_contact">İletişim</a>
       </nav>
       <div class="lang" role="group" aria-label="Dil / Idioma">
@@ -43,7 +37,7 @@
     <section class="d-card hero" id="top">
       <div class="wrap hero-grid">
         <div class="hero-text">
-          <h1 class="split" data-i18n="hero_h1">İspanya’da okumak isteyenlere Sevilla’dan rehberlik.</h1>
+          <h1 class="split" data-i18n="hero_h1">İspanya’ya gitmeden önce yolunu birlikte çizelim.</h1>
           <p class="lead" data-i18n="hero_lead">Dil okulu, devlet mesleki eğitimi (FP) ya da üniversite: hangi yolun size uyduğunu birlikte belirliyor, okul kaydından vize dosyasına ve İspanya’daki ilk aya kadar süreci sizinle yürütüyoruz.</p>
           <div class="actions">
             <a class="btn btn-primary" href="https://wa.me/34666104496" target="_blank" rel="noopener"><span data-i18n="cta_wa">WhatsApp’tan yazın</span> <span class="arr" aria-hidden="true">→</span></a>
@@ -270,6 +264,8 @@
             <details><summary data-i18n="q4">Türkiye’deyken görüşebilir miyiz?</summary><p data-i18n="a4">Elbette. Ön görüşmeyi WhatsApp’tan ya da görüntülü yapıyoruz; Sevilla’ya geldiğinizde ofiste de buluşabiliriz.</p></details>
           </div>
         </div>
+
+<!--BLOG_LATEST-->
       </div>
     </section>
 
@@ -295,13 +291,14 @@
         <footer class="footer-row">
           <a href="#top" class="logo" aria-label="dogen.es"><!--LOGO--><span class="tld">.es</span></a>
           <p class="legal"><span data-i18n="legal">dogen.es bağımsız bir eğitim ve yerleşim danışmanlığıdır. Vize ve oturum başvurularını aday şahsen yapar; nihai karar yetkili İspanyol makamlarına aittir.</span> © <span id="yr">2026</span> Fırat Daşdöğen, Sevilla.</p>
+          <nav class="foot-links" aria-label="Alt menü"><a href="/blog/" data-i18n="ft_blog">Blog · Rehber yazıları</a><a href="/<!--ALT_PATH-->" hreflang="<!--ALT_LANG-->"><!--ALT_LABEL--></a></nav>
         </footer>
       </div>
     </section>
   </main>
 
   <a class="m-cta" href="https://wa.me/34666104496" target="_blank" rel="noopener" tabindex="-1"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.7 2.6 4.1 3.6 1.5.7 2.1.7 2.9.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3Z"/></svg><span data-i18n="cta_wa">WhatsApp’tan yazın</span></a>
-  <script src="lenis.min.js" defer></script>
-  <script src="app.js" defer></script>
+  <script src="/lenis.min.js" defer></script>
+  <script src="/app.js" defer></script>
 </body>
 </html>

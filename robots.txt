@@ -1,2 +1,7 @@
 User-agent: *
 Disallow: /r/
+Disallow: /src/
+Disallow: /content/
+Disallow: /tools/
+
+Sitemap: https://dogen.es/sitemap.xml

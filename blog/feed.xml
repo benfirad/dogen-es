@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>dogen.es Blog</title>
+  <link>https://dogen.es/blog/</link>
+  <atom:link href="https://dogen.es/blog/feed.xml" rel="self" type="application/rss+xml" />
+  <description>İspanya’da eğitim ve yerleşim üzerine rehber yazılar, Sevilla’dan.</description>
+  <language>tr</language>
+  <lastBuildDate>Thu, 26 Nov 2026 09:00:00 +0100</lastBuildDate>
+  <item>
+    <title>İspanya’da ücretsiz devlet meslek eğitimi: FP Grado Superior nedir, nasıl girilir?</title>
+    <link>https://dogen.es/blog/ispanyada-ucretsiz-devlet-meslek-egitimi-fp/</link>
+    <guid isPermaLink="true">https://dogen.es/blog/ispanyada-ucretsiz-devlet-meslek-egitimi-fp/</guid>
+    <pubDate>Thu, 26 Nov 2026 09:00:00 +0100</pubDate>
+    <description>İspanya’da devlet okullarında ücretsiz okunan 2 yıllık FP Grado Superior programları, kabul şartları, Endülüs’teki başvuru takvimi ve öğrenciyken çalışma hakkı.</description>
+    <category>FP</category>
+    <category>Eğitim</category>
+    <category>Endülüs</category>
+  </item>
+  <item>
+    <title>İspanya’da öğrenciyken çalışmak: 30 saat kuralı ve dil kursu istisnası</title>
+    <link>https://dogen.es/blog/ispanyada-ogrenciyken-calismak/</link>
+    <guid isPermaLink="true">https://dogen.es/blog/ispanyada-ogrenciyken-calismak/</guid>
+    <pubDate>Thu, 26 Nov 2026 09:00:00 +0100</pubDate>
+    <description>Yeni Yabancılar Yönetmeliği (RD 1155/2024) ile İspanya’da öğrenciler haftada kaç saat çalışabilir? Yükseköğretim ve dil kursu farkı, mezuniyet sonrası çalışma oturumu.</description>
+    <category>Çalışma izni</category>
+    <category>Öğrenci oturumu</category>
+    <category>Mevzuat</category>
+  </item>
+  <item>
+    <title>İspanya öğrenci vizesi: Türkiye’den başvuru adım adım</title>
+    <link>https://dogen.es/blog/ispanya-ogrenci-vizesi-rehberi/</link>
+    <guid isPermaLink="true">https://dogen.es/blog/ispanya-ogrenci-vizesi-rehberi/</guid>
+    <pubDate>Thu, 26 Nov 2026 09:00:00 +0100</pubDate>
+    <description>İspanya uzun süreli öğrenci vizesine Türkiye’den nasıl başvurulur? Gerekli belgeler, geçim kanıtı, sağlık sigortası, BLS randevusu ve sık yapılan hatalar.</description>
+    <category>Vize</category>
+    <category>Öğrenci oturumu</category>
+  </item>
+  <item>
+    <title>Türk lise diplomasının İspanya’da denkliği (homologación) rehberi</title>
+    <link>https://dogen.es/blog/lise-diplomasi-denkligi-homologacion/</link>
+    <guid isPermaLink="true">https://dogen.es/blog/lise-diplomasi-denkligi-homologacion/</guid>
+    <pubDate>Thu, 26 Nov 2026 09:00:00 +0100</pubDate>
+    <description>Türk lise diploması İspanya’da Bachiller’e nasıl denk sayılır? Gerekli belgeler, harç, şartlı kayıt belgesi (volante), not ortalaması hesabı ve 5,00 puan tuzağı.</description>
+    <category>Denklik</category>
+    <category>Evrak</category>
+    <category>FP</category>
+  </item>
+  <item>
+    <title>Sevilla’ya vardıktan sonra ilk 30 gün: padrón, TIE ve dijital sertifika</title>
+    <link>https://dogen.es/blog/sevillada-ilk-30-gun/</link>
+    <guid isPermaLink="true">https://dogen.es/blog/sevillada-ilk-30-gun/</guid>
+    <pubDate>Thu, 26 Nov 2026 09:00:00 +0100</pubDate>
+    <description>Öğrenci vizesiyle Sevilla’ya vardıktan sonra yapılması gerekenler: belediye adres kaydı (empadronamiento), TIE parmak izi randevusu, dijital sertifika, banka ve telefon.</description>
+    <category>Sevilla</category>
+    <category>Yerleşim</category>
+    <category>TIE</category>
+  </item>
+  <item>
+    <title>Sevilla’da İspanyolca dil okulu seçerken vize için dikkat edilecek 7 nokta</title>
+    <link>https://dogen.es/blog/sevillada-dil-okulu-secimi/</link>
+    <guid isPermaLink="true">https://dogen.es/blog/sevillada-dil-okulu-secimi/</guid>
+    <pubDate>Thu, 26 Nov 2026 09:00:00 +0100</pubDate>
+    <description>Öğrenci vizesiyle Sevilla’da İspanyolca öğrenmek isteyenler için dil okulu seçimi: haftalık ders saati, yüz yüze eğitim, iade koşulu, kabul mektubu ve başlangıç tarihi.</description>
+    <category>Dil okulu</category>
+    <category>Sevilla</category>
+    <category>Vize</category>
+  </item>
+</channel>
+</rss>

@@ -537,3 +537,19 @@ p, li, dd, summary { text-wrap: pretty; }
   .partners-list a { min-height: 52px; }
 }
 @media print { .m-cta { display: none !important; } }
+
+/* ---- Ana sayfa · Rehber yazıları bloğu ve alt bilgi linkleri ---- */
+.blog-latest { margin-top: clamp(56px, 9vh, 96px); display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.45fr); gap: 20px clamp(32px, 6vw, 88px); align-items: start; }
+.blog-latest h2 { font-size: clamp(28px, 3.6vw, 42px); margin: 0 0 14px; }
+.bl-head .text-link { display: inline-block; margin-top: 4px; }
+.bl-list { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--tinta); }
+.bl-list a { display: grid; grid-template-columns: 1fr auto; gap: 4px 18px; padding: 18px 2px; border-bottom: 1px solid var(--linea); color: var(--tinta); text-decoration: none; }
+.bl-list .bl-tag { grid-column: 1; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--albero-t); }
+.bl-list strong { grid-column: 1; font-weight: 600; font-size: 18px; line-height: 1.3; transition: color .2s ease; }
+.bl-list .bl-meta { grid-column: 1; font-size: 13.5px; color: #5b606a; }
+.bl-list i { grid-column: 2; grid-row: 1 / span 3; align-self: center; font-style: normal; color: var(--azulejo); transition: transform .3s var(--ease); }
+@media (hover: hover) { .bl-list a:hover strong { color: var(--azulejo); } .bl-list a:hover i { transform: translateX(4px); } }
+@media (max-width: 900px) { .blog-latest { grid-template-columns: 1fr; } }
+.foot-links { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.foot-links a { color: rgba(246, 244, 239, 0.78); text-decoration: none; font-size: 14.5px; }
+.foot-links a:hover { color: #fff; text-decoration: underline; }
