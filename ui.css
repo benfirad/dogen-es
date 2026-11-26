@@ -115,21 +115,35 @@ html.mn-lock { overflow: hidden; }
 .mn-foot p { margin: 0; font-size: 17px; font-weight: 500; }
 
 /* ---------------------------------------------------------------- alt bilgi */
-.ft { background: var(--tinta); color: var(--cal); border-radius: var(--ui-r) var(--ui-r) 0 0; padding: clamp(48px, 8vh, 80px) 0 36px; margin-top: clamp(56px, 9vh, 104px); }
-.ft a { color: rgba(255, 255, 255, 0.82); text-decoration: none; }
-.ft a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.ft { position: relative; z-index: 20; background: var(--cal); color: var(--tinta); margin-top: clamp(56px, 9vh, 104px); padding-top: clamp(56px, 9vh, 96px); border-top: 1px solid var(--linea); overflow: clip; }
+.ft a { color: var(--tinta); text-decoration: none; }
+.ft a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .ft-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 36px clamp(24px, 4vw, 56px); }
-.ft-logo { display: inline-flex; color: var(--cal) !important; }
+.ft-logo { display: inline-flex; color: var(--tinta) !important; }
 .ft-logo svg { height: 30px; width: auto; display: block; }
-.ft-brand p { margin: 16px 0 22px; color: rgba(255, 255, 255, 0.7); font-size: 15.5px; line-height: 1.6; max-width: 30em; }
-.ft-brand .ui-pill { color: var(--azulejo); }
-.ft-brand .ui-pill:hover { color: var(--azulejo-d); text-decoration: none; }
-.ft h2 { margin: 4px 0 14px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--albero-light); }
+.ft-brand p { margin: 16px 0 22px; color: var(--pizarra); font-size: 15.5px; line-height: 1.6; max-width: 30em; }
+.ft-brand .ui-pill, .ft-brand .ui-pill:hover { color: #fff; text-decoration: none; }
+.ft h2 { margin: 4px 0 14px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pizarra); }
 .ft ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; font-size: 15px; line-height: 1.4; }
-.ft-bottom { margin-top: clamp(40px, 6vh, 64px); padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.14); display: flex; flex-wrap: wrap; gap: 12px 40px; justify-content: space-between; align-items: flex-end; }
-.ft-legal { margin: 0; font-size: 13px; line-height: 1.55; color: rgba(255, 255, 255, 0.56); max-width: 640px; }
-.ft-copy { margin: 0; font-size: 13.5px; color: rgba(255, 255, 255, 0.7); }
-.ft-copy a { color: rgba(255, 255, 255, 0.82); }
+.ft ul li { color: var(--pizarra); }
+.ft-legal { margin: clamp(36px, 5vh, 56px) 0 0; font-size: 12.5px; line-height: 1.55; color: var(--pizarra); max-width: 640px; }
+/* Sevilla çizimi: gökyüzü sayfanın beyazına karışır, alt şerit resmin üstünde */
+.ft-art { position: relative; margin-top: clamp(-40px, -3vw, -8px); }
+.ft-art picture, .ft-art img { display: block; width: 100%; height: auto; }
+.ft-art img { min-height: 300px; object-fit: cover; object-position: 50% 100%;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 26%); mask-image: linear-gradient(to bottom, transparent 0, #000 26%); }
+.ft-art::after { content: ""; position: absolute; inset: auto 0 0; height: 34%; background: linear-gradient(to bottom, rgba(10, 15, 28, 0), rgba(10, 15, 28, 0.62)); pointer-events: none; }
+.ft-bottom { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; display: flex; flex-wrap: wrap; gap: 6px 28px; justify-content: space-between; padding-bottom: 20px !important; }
+.ft-copy { margin: 0; font-size: 13px; color: rgba(255, 255, 255, 0.9); text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35); }
+.ft .ft-copy a { color: #fff; }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ft-art img { animation: ft-rise linear both; animation-timeline: view(); animation-range: entry 0% cover 60%; transform-origin: 50% 100%; }
+    @keyframes ft-rise { from { transform: translateY(48px) scale(1.06); } to { transform: none; } }
+  }
+}
+/* Ana sayfa: kart yığınının son kartı olarak koyu İletişim kartının üstüne biner */
+main.shell + .ft { margin-top: calc(var(--radius-card, 28px) * -1); border-top: 0; border-radius: var(--radius-card, 28px) var(--radius-card, 28px) 0 0; box-shadow: 0 -24px 56px rgba(0, 0, 0, 0.18); }
 
 /* ---------------------------------------------------------------- ana sayfa ekleri */
 .more-row { margin-top: clamp(28px, 4vh, 40px); }
@@ -313,7 +327,6 @@ html.mn-lock { overflow: hidden; }
 @media print { .hd, .mn, .ft, .pg-cta { display: none !important; } }
 
 /* ---------------------------------------------------------------- sonradan eklenenler */
-.ft.ft-in { background: none; border-radius: 0; margin-top: clamp(56px, 8vh, 88px); padding: clamp(40px, 6vh, 64px) 0 0; border-top: 1px solid rgba(255, 255, 255, 0.14); }
 .site-header.hd .hd-row { height: 68px; }
 .site-header.on-dark .lang a { color: rgba(255, 255, 255, 0.72); }
 .pg-sec-plain { border-top: 0; padding-top: 0; }

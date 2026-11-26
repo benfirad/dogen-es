@@ -108,23 +108,29 @@ def footer(lang, logo, posts, tr_href, es_href, home=False):
     guides += f'<li><a href="/blog/"{hl}>{U["all_posts"]} →</a></li>'
     alt_href = es_href if lang == "tr" else tr_href
     o = other(lang)
-    inner = f'''<div class="ft-grid">
+    art_alt = "Sevilla: Guadalquivir, Torre del Oro ve Giralda" if lang == "tr" else "Sevilla: el Guadalquivir, la Torre del Oro y la Giralda"
+    return f'''<footer class="ft">
+    <div class="ui-wrap ft-top">
+      <div class="ft-grid">
         <div class="ft-brand">
           <a class="ft-logo" href="{P.path("home", lang)}" aria-label="dogen — {e(U["home"])}">{logo}</a>
           <p>{U["foot_about"]}</p>
-          <a class="ui-pill ui-pill-light" href="{WA}" target="_blank" rel="noopener">{U["wa"]} {ARROW}</a>
+          <a class="ui-pill" href="{WA}" target="_blank" rel="noopener">{U["wa"]} {ARROW}</a>
         </div>
         <nav aria-label="{e(U["foot_menu"])}"><h2>{U["foot_pages"]}</h2><ul>{pages}</ul></nav>
         <div><h2>{U["foot_guides"]}{U["guides_note"]}</h2><ul>{guides}</ul></div>
         <div><h2>{U["foot_contact"]}</h2><ul><li><a href="{WA}" target="_blank" rel="noopener">+34 666 104 496</a></li><li><a href="mailto:{MAIL}">{MAIL}</a></li><li>Sevilla, España</li></ul></div>
       </div>
-      <div class="ft-bottom">
-        <p class="ft-legal">{U["legal_line"]}</p>
-        <p class="ft-copy">© <span data-yr>{year}</span> dogen · Sevilla · <a href="{P.path("legal", lang)}">{U["legal"]}</a> · <a href="{alt_href}" hreflang="{o}" lang="{o}" data-lang-link="{o}">{P.UI[lang]["other_lang"]}</a></p>
-      </div>'''
-    if home:
-        return f'<footer class="ft ft-in">\n      {inner}\n    </footer>'
-    return f'<footer class="ft">\n    <div class="ui-wrap">\n      {inner}\n    </div>\n  </footer>'
+      <p class="ft-legal">{U["legal_line"]}</p>
+    </div>
+    <div class="ft-art">
+      <picture><source media="(max-width: 640px)" srcset="/img/sevilla-ft-m.webp" width="1000" height="770"><img src="/img/sevilla-ft.webp" alt="{e(art_alt)}" width="1920" height="901" loading="lazy" decoding="async"></picture>
+      <div class="ui-wrap ft-bottom">
+        <p class="ft-copy">© <span data-yr>{year}</span> dogen · Sevilla</p>
+        <p class="ft-copy"><a href="{P.path("legal", lang)}">{U["legal"]}</a> · <a href="{alt_href}" hreflang="{o}" lang="{o}" data-lang-link="{o}">{P.UI[lang]["other_lang"]}</a></p>
+      </div>
+    </div>
+  </footer>'''
 
 
 # ------------------------------------------------------------------ deneyimler

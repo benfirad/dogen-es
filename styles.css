@@ -179,7 +179,7 @@ main.shell.is-measuring > .d-card { position: relative !important; top: 0 !impor
 #hakkimizda { z-index: 12; background: var(--azulejo); color: var(--cal); border-top-color: rgba(255, 255, 255, 0.16); box-shadow: 0 -24px 56px rgba(15, 32, 54, 0.28); }
 #deneyimler { z-index: 13; background: var(--papel); }
 #kurumlar { z-index: 14; background: var(--cal-2); }
-#iletisim { z-index: 15; background: var(--tinta); color: var(--cal); border-top-color: rgba(255, 255, 255, 0.12); box-shadow: 0 -24px 56px rgba(0, 0, 0, 0.32); padding-bottom: 44px; }
+#iletisim { z-index: 15; background: var(--tinta); color: var(--cal); border-top-color: rgba(255, 255, 255, 0.12); box-shadow: 0 -24px 56px rgba(0, 0, 0, 0.32); padding-bottom: clamp(80px, 11vh, 120px); }
 
 /* Arkada kalan kartın üstü yeni kart gelirken kendi rengiyle yumuşakça örtülür */
 html.d-motion main.shell > .d-card::after {
